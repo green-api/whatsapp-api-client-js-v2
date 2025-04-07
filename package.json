@@ -1,0 +1,40 @@
+{
+  "name": "@green-api/whatsapp-api-client-js-v2",
+  "version": "1.0.0",
+  "description": "whatsapp-api-client-js-v2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "docs": "typedoc",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green-api/whatsapp-api-client-js-v2.git"
+  },
+  "keywords": [
+    "whatsapp",
+    "api",
+    "sdk",
+    "green-api",
+    "messaging"
+  ],
+  "author": "GREEN-API",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/green-api/whatsapp-api-client-js-v2/issues"
+  },
+  "homepage": "https://github.com/green-api/whatsapp-api-client-js-v2#readme",
+  "dependencies": {
+    "axios": "^1.8.4"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1",
+    "typedoc": "^0.28.1",
+    "typedoc-plugin-markdown": "^4.6.0"
+  }
+}

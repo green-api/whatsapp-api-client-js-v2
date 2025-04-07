@@ -1,0 +1,30 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "docs",
+  "name": "GREEN-API WhatsApp SDK v2",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "readme": "README.md",
+  "categorizeByGroup": true,
+  "categoryOrder": [
+    "Message Sending Methods",
+    "Account Management Methods",
+    "Message Queue Methods",
+    "Service Methods",
+    "Group Management Methods",
+    "Journal Methods",
+    "Message Receiving Methods",
+    "*"
+  ],
+  "navigationLinks": {
+    "GitHub": "https://github.com/green-api/whatsapp-api-client-js-v2",
+    "GREEN-API Docs": "https://green-api.com/en/docs/"
+  },
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
+  "plugin": ["typedoc-plugin-markdown"],
+  "theme": "default"
+}
