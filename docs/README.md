@@ -1,3 +1,7 @@
+**GREEN-API WhatsApp SDK v2 v1.0.0**
+
+***
+
 # GREEN-API WhatsApp SDK v2
 
 A TypeScript/JavaScript SDK for interacting with the GREEN-API WhatsApp gateway.
