@@ -10,9 +10,18 @@ npm install @green-api/whatsapp-api-client-js-v2
 yarn add @green-api/whatsapp-api-client-js-v2
 ```
 
+#### API  
+
+Документация к REST API находится по [ссылке](https://green-api.com/docs/api/){:target="_blank"}. Библиотека является обёрткой к REST API, поэтому документация по ссылке выше применима и к самой библиотеке.  
+
+#### Авторизация  
+
+Чтобы отправить сообщение или выполнить другие методы GREEN-API, аккаунт WhatsApp в приложении телефона должен быть в
+авторизованном состоянии. Для авторизации инстанса перейдите в [личный кабинет](https://console.green-api.com/){:target="_blank"} и сканируйте QR-код с использованием приложения WhatsApp.
+
 ## Начало работы
 
-Для использования SDK необходимо создать экземпляр `GreenApiClient` с вашими учетными данными GREEN-API:
+Для использования SDK необходимо создать экземпляр `GreenApiClient` с вашими данными инстанса GREEN-API:
 
 ```typescript
 import { GreenApiClient } from '@green-api/whatsapp-api-client-js-v2';
@@ -23,7 +32,7 @@ const client = new GreenApiClient({
 });
 ```
 
-Для доступа к API Партнера используйте `GreenApiPartnerClient`:
+Для доступа к API Партнера используйте `GreenApiPartnerClient` (вы должны иметь ключ партнера):
 
 ```typescript
 import { GreenApiPartnerClient } from '@green-api/whatsapp-api-client-js-v2';
@@ -199,7 +208,7 @@ await client.deleteMessage({
 });
 ```
 
-## Документация API
+## Методы SDK
 
 SDK предоставляет следующие группы методов:
 
