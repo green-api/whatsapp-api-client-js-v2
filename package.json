@@ -1,6 +1,6 @@
 {
   "name": "@green-api/whatsapp-api-client-js-v2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "whatsapp-api-client-js-v2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
