@@ -45,16 +45,16 @@ export abstract class BaseClient {
     /**
      * Makes an HTTP request to the GREEN-API.
      *
-     * @param method - HTTP method (get or post)
+     * @param method - HTTP method (get, post or delete)
      * @param endpoint - API endpoint
      * @param data - Request body data (for POST)
-     * @param queryParams - Query parameters (for GET)
+     * @param queryParams - Query parameters (for GET/DELETE)
      * @param config - Additional Axios config
      * @returns Promise resolving to the response data
      * @throws Error on failure
      */
     protected async makeRequest<T>(
-        method: "get" | "post",
+        method: "get" | "post" | "delete",
         endpoint: string,
         data?: any,
         queryParams?: Record<string, string | number>,
@@ -76,9 +76,17 @@ export abstract class BaseClient {
                 : ""
             );
 
-            const response: AxiosResponse<T> = await (method === "get"
-                ? this.client.get(url, config)
-                : this.client.post(url, data, config));
+            let response: AxiosResponse<T>;
+            
+            if (method === "get") {
+                response = await this.client.get(url, config);
+            } else if (method === "post") {
+                response = await this.client.post(url, data, config);
+            } else if (method === "delete") {
+                response = await this.client.delete(url, config);
+            } else {
+                throw new Error(`Unsupported HTTP method: ${method}`);
+            }
 
             this.logger.debug("Request successful", {
                 endpoint,
