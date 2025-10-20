@@ -844,9 +844,9 @@ export class GreenApiClient extends BaseClient {
 	 * ```
 	 */
 	async deleteNotification(receiptId: number): Promise<DeleteNotificationResponse> {
-		// Note: This uses DELETE HTTP method, but implemented via custom endpoint
-		const url = `deleteNotification/${receiptId}`;
-		return this.makeRequest("delete", url);
+    	return this.makeRequest(
+			"delete", "deleteNotification", undefined, undefined, undefined, receiptId.toString()
+		);
 	}
 
 	/**

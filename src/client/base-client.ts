@@ -50,6 +50,7 @@ export abstract class BaseClient {
      * @param data - Request body data (for POST)
      * @param queryParams - Query parameters (for GET/DELETE)
      * @param config - Additional Axios config
+     * @param pathAfterToken - Additional path segment to append after the API token
      * @returns Promise resolving to the response data
      * @throws Error on failure
      */
@@ -59,6 +60,7 @@ export abstract class BaseClient {
         data?: any,
         queryParams?: Record<string, string | number>,
         config?: any,
+        pathAfterToken?: string,
     ): Promise<T> {
         try {
             this.logger.info("Making a request", {
@@ -68,14 +70,13 @@ export abstract class BaseClient {
                 data,
                 queryParams,
             });
-
-            const url = this.buildEndpoint(endpoint) + (queryParams
+            const url = this.buildEndpoint(endpoint) + (pathAfterToken ? `/${pathAfterToken}` : "") + (queryParams
                 ? "?" + new URLSearchParams(
                     Object.entries(queryParams).map(([key, value]) => [key, value.toString()])
                 ).toString()
                 : ""
             );
-
+    
             let response: AxiosResponse<T>;
             
             if (method === "get") {
