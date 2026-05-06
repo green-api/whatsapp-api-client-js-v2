@@ -74,6 +74,12 @@ import {
 	SendTextStatusResponse,
 	SendVoiceStatus,
 	SendVoiceStatusResponse,
+	AddContact,
+	EditContact,
+	DeleteContact,
+	AddContactResponse,
+	DeleteContactResponse,
+	EditContactResponse,
 } from "../types";
 
 /**
@@ -1065,5 +1071,76 @@ export class GreenApiClient extends BaseClient {
 	async getOutgoingStatuses(params?: GetOutgoingStatusesParams): Promise<OutgoingStatusMessage[]> {
 		const queryParams = params?.minutes ? {minutes: params.minutes} : undefined;
 		return this.makeRequest("get", "getOutgoingStatuses", undefined, queryParams);
+	}
+
+	// -------------------------------------------------------------------------
+	// Contacts Methods
+	// -------------------------------------------------------------------------
+
+	/**
+	 * Adds contact.
+	 *
+	 * @param params - Contact data containing chat ID and name
+	 * @returns Promise resolving to add contact response
+	 *
+	 * @example
+	 * ```typescript
+	 * await client.addContact({
+	 *   chatId: "1234567890@c.us",
+	 *   firstName: "John",
+	 *   lastName: "Doe"
+	 * });
+	 * ```
+	 */
+	async addContact(params: AddContact): Promise<AddContactResponse> {
+		return this.makeRequest("post", "addContact", {
+			chatId: params.chatId,
+			firstName: params.firstName,
+			lastName: params.lastName,
+			saveInAddressbook: params.saveInAddressbook,
+		});
+	}
+
+	/**
+	 * Edits contact.
+	 *
+	 * @param params - Contact data containing chat ID and name
+	 * @returns Promise resolving to edit contact response
+	 *
+	 * @example
+	 * ```typescript
+	 * await client.editContact({
+	 *   chatId: "1234567890@c.us",
+	 *   firstName: "John",
+	 *   lastName: "Doe"
+	 * });
+	 * ```
+	 */
+	async editContact(params: EditContact): Promise<EditContactResponse> {
+		return this.makeRequest("post", "editContact", {
+			chatId: params.chatId,
+			firstName: params.firstName,
+			lastName: params.lastName,
+			saveInAddressbook: params.saveInAddressbook,
+		});
+	}
+
+	/**
+	 * Deletes contact.
+	 *
+	 * @param params - Contact data containing chat ID
+	 * @returns Promise resolving to delete contact response
+	 *
+	 * @example
+	 * ```typescript
+	 * await client.deleteContact({
+	 *   chatId: "1234567890@c.us"
+	 * });
+	 * ```
+	 */
+	async deleteContact(params: DeleteContact): Promise<DeleteContactResponse> {
+		return this.makeRequest("post", "deleteContact", {
+			chatId: params.chatId,
+		});
 	}
 }

@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: IncomingJournalFields
 
-Defined in: [types/messages.ts:198](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L198)
+Defined in: [types/messages.ts:198](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L198)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/messages.ts:198](https://github.com/green-api/whatsapp-api-cl
 
 > **senderContactName**: `string`
 
-Defined in: [types/messages.ts:202](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L202)
+Defined in: [types/messages.ts:202](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L202)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/messages.ts:202](https://github.com/green-api/whatsapp-api-cl
 
 > **senderId**: `string`
 
-Defined in: [types/messages.ts:200](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L200)
+Defined in: [types/messages.ts:200](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L200)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/messages.ts:200](https://github.com/green-api/whatsapp-api-cl
 
 > **senderName**: `string`
 
-Defined in: [types/messages.ts:201](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L201)
+Defined in: [types/messages.ts:201](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L201)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [types/messages.ts:201](https://github.com/green-api/whatsapp-api-cl
 
 > **type**: `"incoming"`
 
-Defined in: [types/messages.ts:199](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L199)
+Defined in: [types/messages.ts:199](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L199)

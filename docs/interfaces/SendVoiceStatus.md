@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: SendVoiceStatus
 
-Defined in: [types/statuses.ts:14](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L14)
+Defined in: [types/statuses.ts:14](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L14)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/statuses.ts:14](https://github.com/green-api/whatsapp-api-cli
 
 > `optional` **backgroundColor**: `string`
 
-Defined in: [types/statuses.ts:17](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L17)
+Defined in: [types/statuses.ts:17](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L17)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/statuses.ts:17](https://github.com/green-api/whatsapp-api-cli
 
 > **fileName**: `string`
 
-Defined in: [types/statuses.ts:16](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L16)
+Defined in: [types/statuses.ts:16](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L16)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/statuses.ts:16](https://github.com/green-api/whatsapp-api-cli
 
 > `optional` **participants**: `string`[]
 
-Defined in: [types/statuses.ts:18](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L18)
+Defined in: [types/statuses.ts:18](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L18)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [types/statuses.ts:18](https://github.com/green-api/whatsapp-api-cli
 
 > **urlFile**: `string`
 
-Defined in: [types/statuses.ts:15](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L15)
+Defined in: [types/statuses.ts:15](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L15)

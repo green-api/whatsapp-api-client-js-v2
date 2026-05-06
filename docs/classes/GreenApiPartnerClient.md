@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Class: GreenApiPartnerClient
 
-Defined in: [client/green-api-partner-client.ts:25](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/client/green-api-partner-client.ts#L25)
+Defined in: [client/green-api-partner-client.ts:25](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-partner-client.ts#L25)
 
 Client for partner-specific operations with GREEN-API.
 Provides methods for managing instances as a GREEN-API partner.
@@ -28,7 +28,7 @@ const instances = await partnerClient.getInstances();
 
 > **new GreenApiPartnerClient**(`credentials`): `GreenApiPartnerClient`
 
-Defined in: [client/green-api-partner-client.ts:35](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/client/green-api-partner-client.ts#L35)
+Defined in: [client/green-api-partner-client.ts:35](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-partner-client.ts#L35)
 
 Creates a new GREEN-API partner client instance.
 
@@ -50,7 +50,7 @@ Partner credentials containing partnerToken and optional partnerApiUrl
 
 > **createInstance**(`params`): `Promise`\<[`CreateInstanceResponse`](../interfaces/CreateInstanceResponse.md)\>
 
-Defined in: [client/green-api-partner-client.ts:103](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/client/green-api-partner-client.ts#L103)
+Defined in: [client/green-api-partner-client.ts:103](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-partner-client.ts#L103)
 
 Creates a new messenger account instance as a partner.
 After creation, the instance must be authorized by scanning a QR code.
@@ -90,7 +90,7 @@ console.log(`API Token: ${instance.apiTokenInstance}`);
 
 > **deleteInstanceAccount**(`params`): `Promise`\<[`DeleteInstanceAccountResponse`](../interfaces/DeleteInstanceAccountResponse.md)\>
 
-Defined in: [client/green-api-partner-client.ts:145](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/client/green-api-partner-client.ts#L145)
+Defined in: [client/green-api-partner-client.ts:145](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-partner-client.ts#L145)
 
 Deletes a messenger account instance created by the partner.
 
@@ -126,7 +126,7 @@ if (result.deleteInstanceAccount) {
 
 > **getInstances**(): `Promise`\<[`PartnerInstance`](../interfaces/PartnerInstance.md)[]\>
 
-Defined in: [client/green-api-partner-client.ts:61](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/client/green-api-partner-client.ts#L61)
+Defined in: [client/green-api-partner-client.ts:61](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-partner-client.ts#L61)
 
 Gets all account instances created by the partner.
 Returns both active and deleted instances (deleted instances shown for the last 3 months).

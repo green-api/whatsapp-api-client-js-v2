@@ -211,6 +211,36 @@ await client.deleteMessage({
 });
 ```
 
+### Working with contacts
+
+```typescript
+// Add a contact
+const addResult = await client.addContact({
+    chatId: '1234567890@c.us',
+    firstName: 'John',
+    lastName: 'Doe',
+    saveInAddressbook: true
+
+});
+console.log('Add contact result:', addResult.addContact);
+
+// Edit a contact
+const editResult = await client.editContact({
+    chatId: '1234567890@c.us',
+    firstName: 'Jane',
+    lastName: 'Doe',
+    saveInAddressbook: true
+
+});
+console.log('Edit contact result:', editResult.editContact);
+
+// Delete a contact
+const deleteResult = await client.deleteContact({
+    chatId: '1234567890@c.us'
+});
+console.log('Delete contact result:', deleteResult.deleteContact);
+```
+
 ## SDK methods
 
 The SDK provides the following groups of methods:
@@ -283,7 +313,12 @@ The SDK provides the following groups of methods:
     - `getIncomingStatuses`
     - `getOutgoingStatuses`
 
-9. **Partner API Methods**
+9. **Contacts Methods**
+    - `addContact`
+    - `editContact`
+    - `deleteContact`
+
+10. **Partner API Methods**
     - `getInstances`
     - `createInstance`
     - `deleteInstanceAccount`

@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: SendTextStatus
 
-Defined in: [types/statuses.ts:3](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L3)
+Defined in: [types/statuses.ts:3](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L3)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/statuses.ts:3](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **backgroundColor**: `string`
 
-Defined in: [types/statuses.ts:5](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L5)
+Defined in: [types/statuses.ts:5](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L5)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/statuses.ts:5](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **font**: `string`
 
-Defined in: [types/statuses.ts:6](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L6)
+Defined in: [types/statuses.ts:6](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L6)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/statuses.ts:6](https://github.com/green-api/whatsapp-api-clie
 
 > **message**: `string`
 
-Defined in: [types/statuses.ts:4](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L4)
+Defined in: [types/statuses.ts:4](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L4)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [types/statuses.ts:4](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **participants**: `string`[]
 
-Defined in: [types/statuses.ts:7](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L7)
+Defined in: [types/statuses.ts:7](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L7)

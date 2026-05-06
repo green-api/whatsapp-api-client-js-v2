@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: Instance
 
-Defined in: [types/instance.ts:4](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/instance.ts#L4)
+Defined in: [types/instance.ts:4](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L4)
 
 Represents the authentication credentials for a GREEN-API WhatsApp instance.
 
@@ -16,7 +16,7 @@ Represents the authentication credentials for a GREEN-API WhatsApp instance.
 
 > **apiTokenInstance**: `string`
 
-Defined in: [types/instance.ts:6](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/instance.ts#L6)
+Defined in: [types/instance.ts:6](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L6)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [types/instance.ts:6](https://github.com/green-api/whatsapp-api-clie
 
 > **idInstance**: `number` \| `bigint`
 
-Defined in: [types/instance.ts:5](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/instance.ts#L5)
+Defined in: [types/instance.ts:5](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L5)

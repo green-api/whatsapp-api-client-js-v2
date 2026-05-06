@@ -208,6 +208,36 @@ await client.deleteMessage({
 });
 ```
 
+### Работа с контактами
+
+```typescript
+// Добавить контакт
+const addResult = await client.addContact({
+    chatId: '1234567890@c.us',
+    firstName: 'John',
+    lastName: 'Doe',
+    saveInAddressbook: true
+
+});
+console.log('Add contact result:', addResult.addContact);
+
+// Изменить контакт
+const editResult = await client.editContact({
+    chatId: '1234567890@c.us',
+    firstName: 'Jane',
+    lastName: 'Doe',
+    saveInAddressbook: true
+
+});
+console.log('Edit contact result:', editResult.editContact);
+
+// Удалить контакт
+const deleteResult = await client.deleteContact({
+    chatId: '1234567890@c.us'
+});
+console.log('Delete contact result:', deleteResult.deleteContact);
+```
+
 ## Методы SDK
 
 SDK предоставляет следующие группы методов:
@@ -280,7 +310,12 @@ SDK предоставляет следующие группы методов:
     - `getIncomingStatuses` - получение входящих статусов
     - `getOutgoingStatuses` - получение исходящих статусов
 
-9. **Методы API партнера**
+9. **Методы контактов**
+    - `addContact` - добавление контакта
+    - `editContact` - изменение контакта
+    - `deleteContact` - удаление контакта
+
+10. **Методы API партнера**
     - `getInstances` - получение всех инстансов
     - `createInstance` - создание инстанса
     - `deleteInstanceAccount` - удаление инстанса

@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: MessageWebhook
 
-Defined in: [types/webhooks.ts:47](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/webhooks.ts#L47)
+Defined in: [types/webhooks.ts:47](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L47)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/webhooks.ts:47](https://github.com/green-api/whatsapp-api-cli
 
 > **idMessage**: `string`
 
-Defined in: [types/webhooks.ts:55](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/webhooks.ts#L55)
+Defined in: [types/webhooks.ts:55](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L55)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/webhooks.ts:55](https://github.com/green-api/whatsapp-api-cli
 
 > **instanceData**: `object`
 
-Defined in: [types/webhooks.ts:49](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/webhooks.ts#L49)
+Defined in: [types/webhooks.ts:49](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L49)
 
 #### idInstance
 
@@ -42,7 +42,7 @@ Defined in: [types/webhooks.ts:49](https://github.com/green-api/whatsapp-api-cli
 
 > **messageData**: [`WebhookMessageData`](../type-aliases/WebhookMessageData.md) & `object`
 
-Defined in: [types/webhooks.ts:63](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/webhooks.ts#L63)
+Defined in: [types/webhooks.ts:63](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L63)
 
 #### Type declaration
 
@@ -56,7 +56,7 @@ Defined in: [types/webhooks.ts:63](https://github.com/green-api/whatsapp-api-cli
 
 > **senderData**: `object`
 
-Defined in: [types/webhooks.ts:56](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/webhooks.ts#L56)
+Defined in: [types/webhooks.ts:56](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L56)
 
 #### chatId
 
@@ -84,7 +84,7 @@ Defined in: [types/webhooks.ts:56](https://github.com/green-api/whatsapp-api-cli
 
 > **timestamp**: `number`
 
-Defined in: [types/webhooks.ts:54](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/webhooks.ts#L54)
+Defined in: [types/webhooks.ts:54](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L54)
 
 ***
 
@@ -92,4 +92,4 @@ Defined in: [types/webhooks.ts:54](https://github.com/green-api/whatsapp-api-cli
 
 > **typeWebhook**: `"outgoingAPIMessageReceived"` \| `"outgoingMessageReceived"` \| `"incomingMessageReceived"`
 
-Defined in: [types/webhooks.ts:48](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/webhooks.ts#L48)
+Defined in: [types/webhooks.ts:48](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L48)

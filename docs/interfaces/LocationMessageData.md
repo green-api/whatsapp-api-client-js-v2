@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: LocationMessageData
 
-Defined in: [types/messages.ts:346](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L346)
+Defined in: [types/messages.ts:346](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L346)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [types/messages.ts:346](https://github.com/green-api/whatsapp-api-cl
 
 > **address**: `string`
 
-Defined in: [types/messages.ts:348](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L348)
+Defined in: [types/messages.ts:348](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L348)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [types/messages.ts:348](https://github.com/green-api/whatsapp-api-cl
 
 > **forwardingScore**: `number`
 
-Defined in: [types/messages.ts:236](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L236)
+Defined in: [types/messages.ts:236](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L236)
 
 #### Inherited from
 
@@ -38,7 +38,7 @@ Defined in: [types/messages.ts:236](https://github.com/green-api/whatsapp-api-cl
 
 > **isForwarded**: `boolean`
 
-Defined in: [types/messages.ts:237](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L237)
+Defined in: [types/messages.ts:237](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L237)
 
 #### Inherited from
 
@@ -50,7 +50,7 @@ Defined in: [types/messages.ts:237](https://github.com/green-api/whatsapp-api-cl
 
 > **jpegThumbnail**: `string`
 
-Defined in: [types/messages.ts:241](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L241)
+Defined in: [types/messages.ts:241](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L241)
 
 #### Inherited from
 
@@ -62,7 +62,7 @@ Defined in: [types/messages.ts:241](https://github.com/green-api/whatsapp-api-cl
 
 > **latitude**: `number`
 
-Defined in: [types/messages.ts:349](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L349)
+Defined in: [types/messages.ts:349](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L349)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [types/messages.ts:349](https://github.com/green-api/whatsapp-api-cl
 
 > **longitude**: `number`
 
-Defined in: [types/messages.ts:350](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L350)
+Defined in: [types/messages.ts:350](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L350)
 
 ***
 
@@ -78,4 +78,4 @@ Defined in: [types/messages.ts:350](https://github.com/green-api/whatsapp-api-cl
 
 > **nameLocation**: `string`
 
-Defined in: [types/messages.ts:347](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L347)
+Defined in: [types/messages.ts:347](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L347)

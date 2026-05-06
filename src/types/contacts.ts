@@ -82,3 +82,37 @@ export interface SetDisappearingChatResponse {
     disappearingMessagesInChat: boolean;
     ephemeralExpiration: EphemeralExpiration;
 }
+
+export interface AddContact {
+	chatId: string;
+	firstName: string;
+    lastName?: string;
+    saveInAddressbook?: boolean;
+}
+
+export interface AddContactResponse {
+	addContact?: boolean;
+	message?: string;
+}
+
+export interface EditContact {
+	chatId: string;
+	firstName: string;
+    lastName?: string;
+    saveInAddressbook?: boolean;
+}
+
+export interface EditContactResponse {
+	editContact?: boolean;
+	message?: string;
+}
+
+
+export interface DeleteContact {
+	chatId: string;
+}
+
+export interface DeleteContactResponse {
+	deleteContact?: boolean;
+	message?: string;
+}
