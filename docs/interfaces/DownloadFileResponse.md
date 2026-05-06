@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: DownloadFileResponse
 
-Defined in: [types/messages.ts:75](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L75)
+Defined in: [types/messages.ts:75](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L75)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [types/messages.ts:75](https://github.com/green-api/whatsapp-api-cli
 
 > **downloadUrl**: `string`
 
-Defined in: [types/messages.ts:76](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L76)
+Defined in: [types/messages.ts:76](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L76)

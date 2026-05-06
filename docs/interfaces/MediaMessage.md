@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: MediaMessage
 
-Defined in: [types/messages.ts:240](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L240)
+Defined in: [types/messages.ts:240](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L240)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: [types/messages.ts:240](https://github.com/green-api/whatsapp-api-cl
 
 > **forwardingScore**: `number`
 
-Defined in: [types/messages.ts:236](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L236)
+Defined in: [types/messages.ts:236](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L236)
 
 #### Inherited from
 
@@ -36,7 +36,7 @@ Defined in: [types/messages.ts:236](https://github.com/green-api/whatsapp-api-cl
 
 > **isForwarded**: `boolean`
 
-Defined in: [types/messages.ts:237](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L237)
+Defined in: [types/messages.ts:237](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L237)
 
 #### Inherited from
 
@@ -48,4 +48,4 @@ Defined in: [types/messages.ts:237](https://github.com/green-api/whatsapp-api-cl
 
 > **jpegThumbnail**: `string`
 
-Defined in: [types/messages.ts:241](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L241)
+Defined in: [types/messages.ts:241](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L241)

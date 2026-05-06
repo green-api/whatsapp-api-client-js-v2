@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: WaSettings
 
-Defined in: [types/instance.ts:31](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/instance.ts#L31)
+Defined in: [types/instance.ts:31](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L31)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/instance.ts:31](https://github.com/green-api/whatsapp-api-cli
 
 > **avatar**: `string`
 
-Defined in: [types/instance.ts:32](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/instance.ts#L32)
+Defined in: [types/instance.ts:32](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L32)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/instance.ts:32](https://github.com/green-api/whatsapp-api-cli
 
 > **deviceId**: `string`
 
-Defined in: [types/instance.ts:35](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/instance.ts#L35)
+Defined in: [types/instance.ts:35](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L35)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/instance.ts:35](https://github.com/green-api/whatsapp-api-cli
 
 > **phone**: `string`
 
-Defined in: [types/instance.ts:33](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/instance.ts#L33)
+Defined in: [types/instance.ts:33](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L33)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [types/instance.ts:33](https://github.com/green-api/whatsapp-api-cli
 
 > **stateInstance**: [`InstanceState`](../type-aliases/InstanceState.md)
 
-Defined in: [types/instance.ts:34](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/instance.ts#L34)
+Defined in: [types/instance.ts:34](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L34)

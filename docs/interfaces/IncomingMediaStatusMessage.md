@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: IncomingMediaStatusMessage
 
-Defined in: [types/statuses.ts:79](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L79)
+Defined in: [types/statuses.ts:79](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L79)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [types/statuses.ts:79](https://github.com/green-api/whatsapp-api-cli
 
 > `optional` **caption**: `string`
 
-Defined in: [types/statuses.ts:82](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L82)
+Defined in: [types/statuses.ts:82](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L82)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [types/statuses.ts:82](https://github.com/green-api/whatsapp-api-cli
 
 > **chatId**: `string`
 
-Defined in: [types/statuses.ts:67](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L67)
+Defined in: [types/statuses.ts:67](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L67)
 
 #### Inherited from
 
@@ -38,7 +38,7 @@ Defined in: [types/statuses.ts:67](https://github.com/green-api/whatsapp-api-cli
 
 > **downloadUrl**: `string`
 
-Defined in: [types/statuses.ts:81](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L81)
+Defined in: [types/statuses.ts:81](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L81)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [types/statuses.ts:81](https://github.com/green-api/whatsapp-api-cli
 
 > **fileName**: `string`
 
-Defined in: [types/statuses.ts:83](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L83)
+Defined in: [types/statuses.ts:83](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L83)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [types/statuses.ts:83](https://github.com/green-api/whatsapp-api-cli
 
 > **idMessage**: `string`
 
-Defined in: [types/statuses.ts:64](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L64)
+Defined in: [types/statuses.ts:64](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L64)
 
 #### Inherited from
 
@@ -66,7 +66,7 @@ Defined in: [types/statuses.ts:64](https://github.com/green-api/whatsapp-api-cli
 
 > `optional` **jpegThumbnail**: `string`
 
-Defined in: [types/statuses.ts:84](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L84)
+Defined in: [types/statuses.ts:84](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L84)
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: [types/statuses.ts:84](https://github.com/green-api/whatsapp-api-cli
 
 > **mimeType**: `string`
 
-Defined in: [types/statuses.ts:85](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L85)
+Defined in: [types/statuses.ts:85](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L85)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [types/statuses.ts:85](https://github.com/green-api/whatsapp-api-cli
 
 > **senderContactName**: `string`
 
-Defined in: [types/statuses.ts:70](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L70)
+Defined in: [types/statuses.ts:70](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L70)
 
 #### Inherited from
 
@@ -94,7 +94,7 @@ Defined in: [types/statuses.ts:70](https://github.com/green-api/whatsapp-api-cli
 
 > **senderId**: `string`
 
-Defined in: [types/statuses.ts:68](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L68)
+Defined in: [types/statuses.ts:68](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L68)
 
 #### Inherited from
 
@@ -106,7 +106,7 @@ Defined in: [types/statuses.ts:68](https://github.com/green-api/whatsapp-api-cli
 
 > **senderName**: `string`
 
-Defined in: [types/statuses.ts:69](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L69)
+Defined in: [types/statuses.ts:69](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L69)
 
 #### Inherited from
 
@@ -118,7 +118,7 @@ Defined in: [types/statuses.ts:69](https://github.com/green-api/whatsapp-api-cli
 
 > **timestamp**: `number`
 
-Defined in: [types/statuses.ts:65](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L65)
+Defined in: [types/statuses.ts:65](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L65)
 
 #### Inherited from
 
@@ -130,7 +130,7 @@ Defined in: [types/statuses.ts:65](https://github.com/green-api/whatsapp-api-cli
 
 > **type**: `"incoming"`
 
-Defined in: [types/statuses.ts:63](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L63)
+Defined in: [types/statuses.ts:63](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L63)
 
 #### Inherited from
 
@@ -142,7 +142,7 @@ Defined in: [types/statuses.ts:63](https://github.com/green-api/whatsapp-api-cli
 
 > **typeMessage**: `"imageMessage"` \| `"videoMessage"` \| `"audioMessage"`
 
-Defined in: [types/statuses.ts:80](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/statuses.ts#L80)
+Defined in: [types/statuses.ts:80](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L80)
 
 #### Overrides
 

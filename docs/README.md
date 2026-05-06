@@ -1,8 +1,8 @@
-**GREEN-API WhatsApp SDK v2 v1.0.0**
+**GREEN-API WhatsApp SDK v2 v1.0.3**
 
 ***
 
-# GREEN-API WhatsApp SDK v2
+# GREEN-API WhatsApp SDK Library v2
 
 A TypeScript/JavaScript SDK for interacting with the GREEN-API WhatsApp gateway.
 
@@ -14,9 +14,21 @@ npm install @green-api/whatsapp-api-client-js-v2
 yarn add @green-api/whatsapp-api-client-js-v2
 ```
 
+#### API
+
+Documentation for the REST API is located at [link](https://green-api.com/en/docs/api/). The library is a wrapper for
+the REST API,
+so the documentation at the link above is also applicable to the library itself.
+
+#### Authorization
+
+To send a message or perform other GREEN-API methods, the WhatsApp account in the phone application must be in the
+authorized state. To authorize the instance, go to [console](https://console.green-api.com/) and
+scan the QR code using the WhatsApp application.
+
 ## Getting Started
 
-To use the SDK, you need to create an instance of the `GreenApiClient` with your GREEN-API credentials:
+To use the SDK, you need to create an instance of the `GreenApiClient` with your GREEN-API instance credentials:
 
 ```typescript
 import { GreenApiClient } from '@green-api/whatsapp-api-client-js-v2';
@@ -203,7 +215,37 @@ await client.deleteMessage({
 });
 ```
 
-## API Documentation
+### Working with contacts
+
+```typescript
+// Add a contact
+const addResult = await client.addContact({
+    chatId: '1234567890@c.us',
+    firstName: 'John',
+    lastName: 'Doe',
+    saveInAddressbook: true
+
+});
+console.log('Add contact result:', addResult.addContact);
+
+// Edit a contact
+const editResult = await client.editContact({
+    chatId: '1234567890@c.us',
+    firstName: 'Jane',
+    lastName: 'Doe',
+    saveInAddressbook: true
+
+});
+console.log('Edit contact result:', editResult.editContact);
+
+// Delete a contact
+const deleteResult = await client.deleteContact({
+    chatId: '1234567890@c.us'
+});
+console.log('Delete contact result:', deleteResult.deleteContact);
+```
+
+## SDK methods
 
 The SDK provides the following groups of methods:
 
@@ -275,7 +317,12 @@ The SDK provides the following groups of methods:
     - `getIncomingStatuses`
     - `getOutgoingStatuses`
 
-9. **Partner API Methods**
+9. **Contacts Methods**
+    - `addContact`
+    - `editContact`
+    - `deleteContact`
+
+10. **Partner API Methods**
     - `getInstances`
     - `createInstance`
     - `deleteInstanceAccount`

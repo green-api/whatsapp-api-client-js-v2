@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: GroupInviteMessageData
 
-Defined in: [types/messages.ts:322](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L322)
+Defined in: [types/messages.ts:322](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L322)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/messages.ts:322](https://github.com/green-api/whatsapp-api-cl
 
 > **caption**: `string`
 
-Defined in: [types/messages.ts:327](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L327)
+Defined in: [types/messages.ts:327](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L327)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/messages.ts:327](https://github.com/green-api/whatsapp-api-cl
 
 > **groupJid**: `string`
 
-Defined in: [types/messages.ts:323](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L323)
+Defined in: [types/messages.ts:323](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L323)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/messages.ts:323](https://github.com/green-api/whatsapp-api-cl
 
 > **groupName**: `string`
 
-Defined in: [types/messages.ts:326](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L326)
+Defined in: [types/messages.ts:326](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L326)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [types/messages.ts:326](https://github.com/green-api/whatsapp-api-cl
 
 > **inviteCode**: `string`
 
-Defined in: [types/messages.ts:324](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L324)
+Defined in: [types/messages.ts:324](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L324)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [types/messages.ts:324](https://github.com/green-api/whatsapp-api-cl
 
 > **inviteExpiration**: `string`
 
-Defined in: [types/messages.ts:325](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L325)
+Defined in: [types/messages.ts:325](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L325)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [types/messages.ts:325](https://github.com/green-api/whatsapp-api-cl
 
 > **jpegThumbnail**: `string`
 
-Defined in: [types/messages.ts:329](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L329)
+Defined in: [types/messages.ts:329](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L329)
 
 ***
 
@@ -62,4 +62,4 @@ Defined in: [types/messages.ts:329](https://github.com/green-api/whatsapp-api-cl
 
 > **name**: `string`
 
-Defined in: [types/messages.ts:328](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/messages.ts#L328)
+Defined in: [types/messages.ts:328](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L328)

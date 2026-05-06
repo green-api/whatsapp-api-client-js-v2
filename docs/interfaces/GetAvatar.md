@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: GetAvatar
 
-Defined in: [types/contacts.ts:9](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L9)
+Defined in: [types/contacts.ts:9](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L9)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [types/contacts.ts:9](https://github.com/green-api/whatsapp-api-clie
 
 > **chatId**: `string`
 
-Defined in: [types/contacts.ts:10](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L10)
+Defined in: [types/contacts.ts:10](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L10)

@@ -1,8 +1,8 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](README.md)
 
 ***
 
-# GREEN-API WhatsApp SDK v2 v1.0.0
+# GREEN-API WhatsApp SDK v2 v1.0.3
 
 ## Classes
 
@@ -11,6 +11,8 @@
 
 ## Interfaces
 
+- [AddContact](interfaces/AddContact.md)
+- [AddContactResponse](interfaces/AddContactResponse.md)
 - [AddGroupParticipant](interfaces/AddGroupParticipant.md)
 - [AddGroupParticipantResponse](interfaces/AddGroupParticipantResponse.md)
 - [ArchiveChat](interfaces/ArchiveChat.md)
@@ -30,6 +32,8 @@
 - [CreateGroupResponse](interfaces/CreateGroupResponse.md)
 - [CreateInstanceParams](interfaces/CreateInstanceParams.md)
 - [CreateInstanceResponse](interfaces/CreateInstanceResponse.md)
+- [DeleteContact](interfaces/DeleteContact.md)
+- [DeleteContactResponse](interfaces/DeleteContactResponse.md)
 - [DeletedMessageData](interfaces/DeletedMessageData.md)
 - [DeleteInstanceAccountParams](interfaces/DeleteInstanceAccountParams.md)
 - [DeleteInstanceAccountResponse](interfaces/DeleteInstanceAccountResponse.md)
@@ -38,6 +42,8 @@
 - [DeleteStatus](interfaces/DeleteStatus.md)
 - [DownloadFileRequest](interfaces/DownloadFileRequest.md)
 - [DownloadFileResponse](interfaces/DownloadFileResponse.md)
+- [EditContact](interfaces/EditContact.md)
+- [EditContactResponse](interfaces/EditContactResponse.md)
 - [EditedMessageData](interfaces/EditedMessageData.md)
 - [EditMessageRequest](interfaces/EditMessageRequest.md)
 - [EditMessageResponse](interfaces/EditMessageResponse.md)

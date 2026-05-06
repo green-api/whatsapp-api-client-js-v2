@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: Product
 
-Defined in: [types/contacts.ts:36](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L36)
+Defined in: [types/contacts.ts:36](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L36)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/contacts.ts:36](https://github.com/green-api/whatsapp-api-cli
 
 > **availability**: `string`
 
-Defined in: [types/contacts.ts:40](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L40)
+Defined in: [types/contacts.ts:40](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L40)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/contacts.ts:40](https://github.com/green-api/whatsapp-api-cli
 
 > `optional` **description**: `string`
 
-Defined in: [types/contacts.ts:42](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L42)
+Defined in: [types/contacts.ts:42](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L42)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/contacts.ts:42](https://github.com/green-api/whatsapp-api-cli
 
 > **id**: `string`
 
-Defined in: [types/contacts.ts:37](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L37)
+Defined in: [types/contacts.ts:37](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L37)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [types/contacts.ts:37](https://github.com/green-api/whatsapp-api-cli
 
 > **imageUrls**: [`ProductImageUrls`](ProductImageUrls.md)
 
-Defined in: [types/contacts.ts:38](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L38)
+Defined in: [types/contacts.ts:38](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L38)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [types/contacts.ts:38](https://github.com/green-api/whatsapp-api-cli
 
 > **isHidden**: `boolean`
 
-Defined in: [types/contacts.ts:44](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L44)
+Defined in: [types/contacts.ts:44](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L44)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [types/contacts.ts:44](https://github.com/green-api/whatsapp-api-cli
 
 > **name**: `string`
 
-Defined in: [types/contacts.ts:41](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L41)
+Defined in: [types/contacts.ts:41](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L41)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [types/contacts.ts:41](https://github.com/green-api/whatsapp-api-cli
 
 > **price**: `null` \| `string`
 
-Defined in: [types/contacts.ts:43](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L43)
+Defined in: [types/contacts.ts:43](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L43)
 
 ***
 
@@ -70,4 +70,4 @@ Defined in: [types/contacts.ts:43](https://github.com/green-api/whatsapp-api-cli
 
 > **reviewStatus**: [`ProductReviewStatus`](ProductReviewStatus.md)
 
-Defined in: [types/contacts.ts:39](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/contacts.ts#L39)
+Defined in: [types/contacts.ts:39](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L39)

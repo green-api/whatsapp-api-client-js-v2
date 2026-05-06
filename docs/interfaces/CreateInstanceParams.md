@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.0**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: CreateInstanceParams
 
-Defined in: [types/partner.ts:21](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L21)
+Defined in: [types/partner.ts:21](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L21)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/partner.ts:21](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **delaySendMessagesMilliseconds**: `number`
 
-Defined in: [types/partner.ts:25](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L25)
+Defined in: [types/partner.ts:25](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L25)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/partner.ts:25](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **deletedMessageWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:39](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L39)
+Defined in: [types/partner.ts:39](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L39)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/partner.ts:39](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **deviceWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:33](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L33)
+Defined in: [types/partner.ts:33](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L33)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [types/partner.ts:33](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **editedMessageWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:38](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L38)
+Defined in: [types/partner.ts:38](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L38)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [types/partner.ts:38](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **incomingBlockWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:36](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L36)
+Defined in: [types/partner.ts:36](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L36)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [types/partner.ts:36](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **incomingCallWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:37](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L37)
+Defined in: [types/partner.ts:37](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L37)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [types/partner.ts:37](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **incomingWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:32](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L32)
+Defined in: [types/partner.ts:32](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L32)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [types/partner.ts:32](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **keepOnlineStatus**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:34](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L34)
+Defined in: [types/partner.ts:34](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L34)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [types/partner.ts:34](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **markIncomingMessagesReaded**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:26](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L26)
+Defined in: [types/partner.ts:26](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L26)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [types/partner.ts:26](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **markIncomingMessagesReadedOnReply**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:27](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L27)
+Defined in: [types/partner.ts:27](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L27)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [types/partner.ts:27](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **name**: `string`
 
-Defined in: [types/partner.ts:22](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L22)
+Defined in: [types/partner.ts:22](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L22)
 
 ***
 
@@ -102,7 +102,7 @@ Defined in: [types/partner.ts:22](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **outgoingAPIMessageWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:30](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L30)
+Defined in: [types/partner.ts:30](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L30)
 
 ***
 
@@ -110,7 +110,7 @@ Defined in: [types/partner.ts:30](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **outgoingMessageWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:29](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L29)
+Defined in: [types/partner.ts:29](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L29)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [types/partner.ts:29](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **outgoingWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:28](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L28)
+Defined in: [types/partner.ts:28](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L28)
 
 ***
 
@@ -126,7 +126,7 @@ Defined in: [types/partner.ts:28](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **pollMessageWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:35](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L35)
+Defined in: [types/partner.ts:35](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L35)
 
 ***
 
@@ -134,7 +134,7 @@ Defined in: [types/partner.ts:35](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **stateWebhook**: `"yes"` \| `"no"`
 
-Defined in: [types/partner.ts:31](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L31)
+Defined in: [types/partner.ts:31](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L31)
 
 ***
 
@@ -142,7 +142,7 @@ Defined in: [types/partner.ts:31](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **webhookUrl**: `string`
 
-Defined in: [types/partner.ts:23](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L23)
+Defined in: [types/partner.ts:23](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L23)
 
 ***
 
@@ -150,4 +150,4 @@ Defined in: [types/partner.ts:23](https://github.com/green-api/whatsapp-api-clie
 
 > `optional` **webhookUrlToken**: `string`
 
-Defined in: [types/partner.ts:24](https://github.com/green-api/whatsapp-api-client-js-v2/blob/6c31521abaa4e85365f3538298181cae99417bce/src/types/partner.ts#L24)
+Defined in: [types/partner.ts:24](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/partner.ts#L24)
