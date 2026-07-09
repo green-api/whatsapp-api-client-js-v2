@@ -6,9 +6,9 @@
 // Или замените значения прямо здесь (не рекомендуется для продакшена):
 
 module.exports = {
-    idInstance: Number(process.env.ID_INSTANCE) || 710701676160,
-    apiTokenInstance: process.env.API_TOKEN || "06b3940ae41d4d059957bedd7073d0af8b4dbd9f06894fa59a",
+    idInstance: Number(process.env.ID_INSTANCE) || 3453454354,
+    apiTokenInstance: process.env.API_TOKEN || "345345435345345",
 
     // Номер получателя для примеров отправки (формат: 7XXXXXXXXXX@c.us)
-    recipientChatId: process.env.RECIPIENT || "77075054206@c.us",
+    recipientChatId: process.env.RECIPIENT || "345345345@c.us",
 };
