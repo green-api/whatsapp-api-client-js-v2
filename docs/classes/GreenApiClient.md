@@ -565,6 +565,40 @@ Promise resolving to avatar information
 
 ***
 
+### getChats()
+
+> **getChats**(`count`?): `Promise`\<[`Chat`](../interfaces/Chat.md)[]\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Gets a list of chats sorted by last activity time.
+The list is updated no more than once per minute.
+
+#### Parameters
+
+##### count?
+
+`number`
+
+Optional number of chats to return
+
+#### Returns
+
+`Promise`\<[`Chat`](../interfaces/Chat.md)[]\>
+
+Promise resolving to an array of chats
+
+#### Example
+
+```typescript
+const chats = await client.getChats(20);
+chats.forEach(chat => {
+  console.log(`${chat.name} (${chat.type}): archived=${chat.archive}`);
+});
+```
+
+***
+
 ### getChatHistory()
 
 > **getChatHistory**(`params`): `Promise`\<[`JournalResponse`](../type-aliases/JournalResponse.md)[]\>
@@ -824,6 +858,39 @@ Promise resolving to instance state
 
 ***
 
+### getStateInstanceHistory()
+
+> **getStateInstanceHistory**(`count`?): `Promise`\<[`StateInstanceHistoryItem`](../interfaces/StateInstanceHistoryItem.md)[]\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Gets the state change history of the current instance in chronological order.
+
+#### Parameters
+
+##### count?
+
+`number`
+
+Optional number of records to return (default: 100)
+
+#### Returns
+
+`Promise`\<[`StateInstanceHistoryItem`](../interfaces/StateInstanceHistoryItem.md)[]\>
+
+Promise resolving to an array of state history items
+
+#### Example
+
+```typescript
+const history = await client.getStateInstanceHistory(50);
+history.forEach(item => {
+  console.log(`${item.stateInstance} at ${new Date(item.timestamp * 1000).toISOString()}`);
+});
+```
+
+***
+
 ### getStatusStatistic()
 
 > **getStatusStatistic**(`params`): `Promise`\<[`GetStatusStatisticResponse`](../type-aliases/GetStatusStatisticResponse.md)\>
@@ -906,6 +973,43 @@ Promise resolving to array of incoming messages
 
 ***
 
+### lastIncomingCalls()
+
+> **lastIncomingCalls**(`minutes`?): `Promise`\<[`IncomingCall`](../interfaces/IncomingCall.md)[]\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Gets the incoming calls log for the specified time period.
+Default is 24 hours (1440 minutes). Returns up to 10,000 calls.
+Note: Requires "Receive webhooks on incoming messages and files" and "Receive webhooks on incoming calls"
+settings to be enabled. Data may take up to 2 minutes to appear.
+
+#### Parameters
+
+##### minutes?
+
+`number`
+
+Optional time period in minutes (default: 1440)
+
+#### Returns
+
+`Promise`\<[`IncomingCall`](../interfaces/IncomingCall.md)[]\>
+
+Promise resolving to array of incoming calls
+
+#### Example
+
+```typescript
+const calls = await client.lastIncomingCalls(60);
+calls.forEach(call => {
+  const status = call.status === "pickUp" ? "answered" : call.status;
+  console.log(`Call from ${call.chatId}: ${status}, video=${call.isVideo}`);
+});
+```
+
+***
+
 ### lastOutgoingMessages()
 
 > **lastOutgoingMessages**(`minutes`?): `Promise`\<[`OutgoingJournalResponse`](../type-aliases/OutgoingJournalResponse.md)[]\>
@@ -930,6 +1034,41 @@ Optional time period in minutes
 `Promise`\<[`OutgoingJournalResponse`](../type-aliases/OutgoingJournalResponse.md)[]\>
 
 Promise resolving to array of outgoing messages
+
+***
+
+### lastOutgoingCalls()
+
+> **lastOutgoingCalls**(`minutes`?): `Promise`\<[`OutgoingCall`](../interfaces/OutgoingCall.md)[]\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Gets the outgoing calls log for the specified time period.
+Default is 24 hours (1440 minutes). Returns up to 10,000 calls.
+Note: Data may take up to 2 minutes to appear in the log.
+
+#### Parameters
+
+##### minutes?
+
+`number`
+
+Optional time period in minutes (default: 1440)
+
+#### Returns
+
+`Promise`\<[`OutgoingCall`](../interfaces/OutgoingCall.md)[]\>
+
+Promise resolving to array of outgoing calls
+
+#### Example
+
+```typescript
+const calls = await client.lastOutgoingCalls();
+calls.forEach(call => {
+  console.log(`Call to ${call.chatId}: ${call.status}, duration=${call.duration}s`);
+});
+```
 
 ***
 
@@ -1227,6 +1366,89 @@ await client.sendFileByUrl({
 
 ***
 
+### sendInteractiveButtons()
+
+> **sendInteractiveButtons**(`params`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Sends a message with interactive action buttons (copy/call/url) to a private chat (Beta feature).
+Supports up to 3 buttons per message. Button text is limited to 25 characters.
+
+#### Parameters
+
+##### params
+
+[`SendInteractiveButtons`](../interfaces/SendInteractiveButtons.md)
+
+Interactive buttons message parameters
+
+#### Returns
+
+`Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
+
+Promise resolving to send response with message ID
+
+#### Example
+
+```typescript
+await client.sendInteractiveButtons({
+  chatId: "1234567890@c.us",
+  header: "Choose an action",
+  body: "Please select one of the options below",
+  footer: "Powered by GREEN-API",
+  buttons: [
+    { type: "url", buttonId: "1", buttonText: "Visit site", url: "https://example.com" },
+    { type: "call", buttonId: "2", buttonText: "Call us", phoneNumber: "79001234567" },
+    { type: "copy", buttonId: "3", buttonText: "Copy code", copyCode: "PROMO2025" }
+  ]
+});
+```
+
+***
+
+### sendInteractiveButtonsReply()
+
+> **sendInteractiveButtonsReply**(`params`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Sends a message with reply buttons that return text to the chat when clicked (Beta feature).
+Supports up to 3 buttons per message. Button text is limited to 25 characters.
+Each button can only be clicked once.
+
+#### Parameters
+
+##### params
+
+[`SendInteractiveButtonsReply`](../interfaces/SendInteractiveButtonsReply.md)
+
+Interactive reply buttons message parameters
+
+#### Returns
+
+`Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
+
+Promise resolving to send response with message ID
+
+#### Example
+
+```typescript
+await client.sendInteractiveButtonsReply({
+  chatId: "1234567890@c.us",
+  header: "Quick reply",
+  body: "How are you?",
+  footer: "Select an answer",
+  buttons: [
+    { buttonId: "1", buttonText: "Great!" },
+    { buttonId: "2", buttonText: "Not bad" },
+    { buttonId: "3", buttonText: "Could be better" }
+  ]
+});
+```
+
+***
+
 ### sendLocation()
 
 > **sendLocation**(`message`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
@@ -1402,6 +1624,48 @@ await client.sendTextStatus({
   backgroundColor: "#228B22", // Use any color except white
   font: "SERIF",
   participants: ["70000001234@c.us"] // Optional: limit visibility to specific contacts
+});
+```
+
+***
+
+### sendTyping()
+
+> **sendTyping**(`params`): `Promise`\<`void`\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Sends a typing or audio recording indicator to a chat.
+The notification delivery time depends on the message queue interval plus the specified typingTime.
+
+#### Parameters
+
+##### params
+
+[`SendTyping`](../interfaces/SendTyping.md)
+
+Parameters containing chat ID, duration and optional type
+
+#### Returns
+
+`Promise`\<`void`\>
+
+Promise resolving to void on success
+
+#### Example
+
+```typescript
+// Show "typing..." indicator for 5 seconds
+await client.sendTyping({
+  chatId: "1234567890@c.us",
+  typingTime: 5000
+});
+
+// Show "recording audio..." indicator for 3 seconds
+await client.sendTyping({
+  chatId: "1234567890@c.us",
+  typingTime: 3000,
+  typingType: "recording"
 });
 ```
 
@@ -1612,6 +1876,32 @@ Parameters containing the chat ID to unarchive
 `Promise`\<`void`\>
 
 Promise resolving to void on success
+
+***
+
+### updateApiToken()
+
+> **updateApiToken**(): `Promise`\<[`UpdateApiTokenResponse`](../interfaces/UpdateApiTokenResponse.md)\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Generates a new API token for the current instance (Beta feature).
+The old token is immediately invalidated after calling this method.
+Make sure to update your credentials before making further requests.
+
+#### Returns
+
+`Promise`\<[`UpdateApiTokenResponse`](../interfaces/UpdateApiTokenResponse.md)\>
+
+Promise resolving to the new API token
+
+#### Example
+
+```typescript
+const result = await client.updateApiToken();
+console.log('New token:', result.apiTokenInstance);
+// Update the client credentials to use the new token
+```
 
 ***
 

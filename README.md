@@ -186,6 +186,90 @@ if (result.deleteInstanceAccount) {
 }
 ```
 
+### Sending Interactive Buttons (Beta)
+
+```typescript
+// Buttons with actions (copy/call/url)
+await client.sendInteractiveButtons({
+    chatId: '1234567890@c.us',
+    header: 'Choose an action',
+    body: 'Please select one of the options below',
+    footer: 'Powered by GREEN-API',
+    buttons: [
+        { type: 'url', buttonId: '1', buttonText: 'Visit site', url: 'https://example.com' },
+        { type: 'call', buttonId: '2', buttonText: 'Call us', phoneNumber: '79001234567' },
+        { type: 'copy', buttonId: '3', buttonText: 'Copy code', copyCode: 'PROMO2025' }
+    ]
+});
+
+// Reply buttons that return text to the chat
+await client.sendInteractiveButtonsReply({
+    chatId: '1234567890@c.us',
+    header: 'Quick reply',
+    body: 'How are you?',
+    footer: 'Select an answer',
+    buttons: [
+        { buttonId: '1', buttonText: 'Great!' },
+        { buttonId: '2', buttonText: 'Not bad' },
+        { buttonId: '3', buttonText: 'Could be better' }
+    ]
+});
+```
+
+### Sending Typing Indicator
+
+```typescript
+// Show "typing..." for 5 seconds
+await client.sendTyping({
+    chatId: '1234567890@c.us',
+    typingTime: 5000
+});
+
+// Show "recording audio..." for 3 seconds
+await client.sendTyping({
+    chatId: '1234567890@c.us',
+    typingTime: 3000,
+    typingType: 'recording'
+});
+```
+
+### Getting Chats and Calls Journal
+
+```typescript
+// Get 20 most recent chats
+const chats = await client.getChats(20);
+chats.forEach(chat => {
+    console.log(`${chat.name} (${chat.type}): archived=${chat.archive}`);
+});
+
+// Get incoming calls for the last hour
+const incomingCalls = await client.lastIncomingCalls(60);
+incomingCalls.forEach(call => {
+    const answered = call.status === 'pickUp' ? 'answered' : call.status;
+    console.log(`Call from ${call.chatId}: ${answered}, video=${call.isVideo}`);
+});
+
+// Get outgoing calls for the last 24 hours (default)
+const outgoingCalls = await client.lastOutgoingCalls();
+outgoingCalls.forEach(call => {
+    console.log(`Call to ${call.chatId}: ${call.status}, duration=${call.duration}s`);
+});
+```
+
+### Account Token Rotation and State History
+
+```typescript
+// Generate a new API token (old token is immediately invalidated)
+const result = await client.updateApiToken();
+console.log('New token:', result.apiTokenInstance);
+
+// Get instance state change history
+const history = await client.getStateInstanceHistory(50);
+history.forEach(item => {
+    console.log(`${item.stateInstance} at ${new Date(item.timestamp * 1000).toISOString()}`);
+});
+```
+
 ### Editing and Deleting Messages
 
 ```typescript
@@ -254,6 +338,8 @@ The SDK provides the following groups of methods:
     - `sendLocation`
     - `sendContact`
     - `uploadFile`
+    - `sendInteractiveButtons` (Beta) — send buttons with copy/call/url actions
+    - `sendInteractiveButtonsReply` (Beta) — send reply buttons that return text to the chat
 
 2. **Account Management Methods**
     - `reboot`
@@ -265,6 +351,8 @@ The SDK provides the following groups of methods:
     - `getWaSettings`
     - `setProfilePicture`
     - `getAuthorizationCode`
+    - `updateApiToken` (Beta) — generate a new API token (old token is immediately invalidated)
+    - `getStateInstanceHistory` — get instance state change history
 
 3. **Message Queue Methods**
     - `showMessagesQueue`
@@ -281,6 +369,8 @@ The SDK provides the following groups of methods:
     - `setDisappearingChat`
     - `editMessage`
     - `deleteMessage`
+    - `sendTyping` — send a typing or audio recording indicator
+    - `getChats` — get a list of chats sorted by last activity
 
 5. **Group Management Methods**
     - `createGroup`
@@ -298,6 +388,8 @@ The SDK provides the following groups of methods:
     - `getChatHistory`
     - `lastIncomingMessages`
     - `lastOutgoingMessages`
+    - `lastIncomingCalls` — get incoming calls log
+    - `lastOutgoingCalls` — get outgoing calls log
 
 7. **Message Receiving Methods**
     - `receiveNotification`

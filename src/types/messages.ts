@@ -448,6 +448,53 @@ export interface PollUpdateMessageData {
 	multipleAnswers: boolean;
 }
 
+export type InteractiveButtonType = "copy" | "call" | "url";
+
+export interface InteractiveButton {
+	type: InteractiveButtonType;
+	buttonId: string;
+	buttonText: string;
+	copyCode?: string;
+	phoneNumber?: string;
+	url?: string;
+}
+
+export interface InteractiveButtonReply {
+	buttonId: string;
+	buttonText: string;
+}
+
+export interface SendInteractiveButtons {
+	chatId: string;
+	header?: string;
+	body: string;
+	footer?: string;
+	buttons: InteractiveButton[];
+}
+
+export interface SendInteractiveButtonsReply {
+	chatId: string;
+	header?: string;
+	body: string;
+	footer?: string;
+	buttons: InteractiveButtonReply[];
+}
+
+export interface SendTyping {
+	chatId: string;
+	typingTime?: number;
+	typingType?: "recording";
+}
+
+export interface Chat {
+	archive: boolean;
+	id: string;
+	ephemeralExpiration: 0 | 86400 | 604800 | 7776000;
+	ephemeralSettingTimestamp: number;
+	name: string;
+	type: "user" | "group";
+}
+
 export type OutgoingMessageStatus =
 	| "sent"
 	| "delivered"

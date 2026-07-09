@@ -80,6 +80,14 @@ import {
 	AddContactResponse,
 	DeleteContactResponse,
 	EditContactResponse,
+	UpdateApiTokenResponse,
+	StateInstanceHistoryItem,
+	SendInteractiveButtons,
+	SendInteractiveButtonsReply,
+	SendTyping,
+	Chat,
+	IncomingCall,
+	OutgoingCall,
 } from "../types";
 
 /**
@@ -316,6 +324,87 @@ export class GreenApiClient extends BaseClient {
 	}
 
 	/**
+	 * Sends a message with interactive action buttons (copy/call/url) to a private chat (Beta feature).
+	 * Supports up to 3 buttons per message. Button text is limited to 25 characters.
+	 *
+	 * @param params - Interactive buttons message parameters
+	 * @returns Promise resolving to send response with message ID
+	 *
+	 * @example
+	 * ```typescript
+	 * await client.sendInteractiveButtons({
+	 *   chatId: "1234567890@c.us",
+	 *   header: "Choose an action",
+	 *   body: "Please select one of the options below",
+	 *   footer: "Powered by GREEN-API",
+	 *   buttons: [
+	 *     { type: "url", buttonId: "1", buttonText: "Visit site", url: "https://example.com" },
+	 *     { type: "call", buttonId: "2", buttonText: "Call us", phoneNumber: "79001234567" },
+	 *     { type: "copy", buttonId: "3", buttonText: "Copy code", copyCode: "PROMO2025" }
+	 *   ]
+	 * });
+	 * ```
+	 */
+	async sendInteractiveButtons(params: SendInteractiveButtons): Promise<SendResponse> {
+		if (params.buttons.length > 3) {
+			throw new Error("sendInteractiveButtons: maximum 3 buttons allowed");
+		}
+		for (const button of params.buttons) {
+			if (button.buttonText.length > 25) {
+				throw new Error("sendInteractiveButtons: button text must not exceed 25 characters");
+			}
+		}
+		return this.makeRequest("post", "sendInteractiveButtons", {
+			chatId: params.chatId,
+			header: params.header,
+			body: params.body,
+			footer: params.footer,
+			buttons: params.buttons,
+		});
+	}
+
+	/**
+	 * Sends a message with reply buttons that return text to the chat when clicked (Beta feature).
+	 * Supports up to 3 buttons per message. Button text is limited to 25 characters.
+	 * Each button can only be clicked once.
+	 *
+	 * @param params - Interactive reply buttons message parameters
+	 * @returns Promise resolving to send response with message ID
+	 *
+	 * @example
+	 * ```typescript
+	 * await client.sendInteractiveButtonsReply({
+	 *   chatId: "1234567890@c.us",
+	 *   header: "Quick reply",
+	 *   body: "How are you?",
+	 *   footer: "Select an answer",
+	 *   buttons: [
+	 *     { buttonId: "1", buttonText: "Great!" },
+	 *     { buttonId: "2", buttonText: "Not bad" },
+	 *     { buttonId: "3", buttonText: "Could be better" }
+	 *   ]
+	 * });
+	 * ```
+	 */
+	async sendInteractiveButtonsReply(params: SendInteractiveButtonsReply): Promise<SendResponse> {
+		if (params.buttons.length > 3) {
+			throw new Error("sendInteractiveButtonsReply: maximum 3 buttons allowed");
+		}
+		for (const button of params.buttons) {
+			if (button.buttonText.length > 25) {
+				throw new Error("sendInteractiveButtonsReply: button text must not exceed 25 characters");
+			}
+		}
+		return this.makeRequest("post", "sendInteractiveButtonsReply", {
+			chatId: params.chatId,
+			header: params.header,
+			body: params.body,
+			footer: params.footer,
+			buttons: params.buttons,
+		});
+	}
+
+	/**
 	 * Uploads a file to GREEN-API servers.
 	 *
 	 * @param file - File to upload
@@ -432,6 +521,42 @@ export class GreenApiClient extends BaseClient {
 	async getAuthorizationCode(phoneNumber: number): Promise<GetAuthorizationCode> {
 		this.validatePhoneNumber(phoneNumber);
 		return this.makeRequest("post", "getAuthorizationCode", {phoneNumber});
+	}
+
+	/**
+	 * Generates a new API token for the current instance (Beta feature).
+	 * The old token is immediately invalidated after calling this method.
+	 * Make sure to update your credentials before making further requests.
+	 *
+	 * @returns Promise resolving to the new API token
+	 *
+	 * @example
+	 * ```typescript
+	 * const result = await client.updateApiToken();
+	 * console.log('New token:', result.apiTokenInstance);
+	 * // Update the client credentials to use the new token
+	 * ```
+	 */
+	async updateApiToken(): Promise<UpdateApiTokenResponse> {
+		return this.makeRequest("get", "updateApiToken");
+	}
+
+	/**
+	 * Gets the state change history of the current instance in chronological order.
+	 *
+	 * @param count - Optional number of records to return (default: 100)
+	 * @returns Promise resolving to an array of state history items
+	 *
+	 * @example
+	 * ```typescript
+	 * const history = await client.getStateInstanceHistory(50);
+	 * history.forEach(item => {
+	 *   console.log(`${item.stateInstance} at ${new Date(item.timestamp * 1000).toISOString()}`);
+	 * });
+	 * ```
+	 */
+	async getStateInstanceHistory(count?: number): Promise<StateInstanceHistoryItem[]> {
+		return this.makeRequest("get", "GetStateInstanceHistory", undefined, count ? {count} : undefined);
 	}
 
 	// -------------------------------------------------------------------------
@@ -643,6 +768,56 @@ export class GreenApiClient extends BaseClient {
 		await this.makeRequest("post", "deleteMessage", params);
 	}
 
+	/**
+	 * Sends a typing or audio recording indicator to a chat.
+	 * The notification delivery time depends on the message queue interval plus the specified typingTime.
+	 *
+	 * @param params - Parameters containing chat ID, duration and optional type
+	 * @returns Promise resolving to void on success
+	 *
+	 * @example
+	 * ```typescript
+	 * // Show "typing..." indicator for 5 seconds
+	 * await client.sendTyping({
+	 *   chatId: "1234567890@c.us",
+	 *   typingTime: 5000
+	 * });
+	 *
+	 * // Show "recording audio..." indicator for 3 seconds
+	 * await client.sendTyping({
+	 *   chatId: "1234567890@c.us",
+	 *   typingTime: 3000,
+	 *   typingType: "recording"
+	 * });
+	 * ```
+	 */
+	async sendTyping(params: SendTyping): Promise<void> {
+		await this.makeRequest("post", "sendTyping", {
+			chatId: params.chatId,
+			typingTime: params.typingTime,
+			typingType: params.typingType,
+		});
+	}
+
+	/**
+	 * Gets a list of chats sorted by last activity time.
+	 * The list is updated no more than once per minute.
+	 *
+	 * @param count - Optional number of chats to return
+	 * @returns Promise resolving to an array of chats
+	 *
+	 * @example
+	 * ```typescript
+	 * const chats = await client.getChats(20);
+	 * chats.forEach(chat => {
+	 *   console.log(`${chat.name} (${chat.type}): archived=${chat.archive}`);
+	 * });
+	 * ```
+	 */
+	async getChats(count?: number): Promise<Chat[]> {
+		return this.makeRequest("get", "getChats", undefined, count ? {count} : undefined);
+	}
+
 	// -------------------------------------------------------------------------
 	// Group Management Methods
 	// -------------------------------------------------------------------------
@@ -798,6 +973,50 @@ export class GreenApiClient extends BaseClient {
 	 */
 	async lastOutgoingMessages(minutes?: number): Promise<OutgoingJournalResponse[]> {
 		return this.makeRequest("get", "lastOutgoingMessages", undefined, minutes ? {minutes} : undefined);
+	}
+
+	/**
+	 * Gets the incoming calls log for the specified time period.
+	 * Default is 24 hours (1440 minutes). Returns up to 10,000 calls.
+	 * Note: Requires "Receive webhooks on incoming messages and files" and "Receive webhooks on incoming calls"
+	 * settings to be enabled. Data may take up to 2 minutes to appear.
+	 *
+	 * @param minutes - Optional time period in minutes (default: 1440)
+	 * @returns Promise resolving to array of incoming calls
+	 *
+	 * @example
+	 * ```typescript
+	 * // Get all incoming calls for the last hour
+	 * const calls = await client.lastIncomingCalls(60);
+	 * calls.forEach(call => {
+	 *   const status = call.status === "pickUp" ? "answered" : call.status;
+	 *   console.log(`Call from ${call.chatId}: ${status}, video=${call.isVideo}`);
+	 * });
+	 * ```
+	 */
+	async lastIncomingCalls(minutes?: number): Promise<IncomingCall[]> {
+		return this.makeRequest("get", "lastIncomingCalls", undefined, minutes ? {minutes} : undefined);
+	}
+
+	/**
+	 * Gets the outgoing calls log for the specified time period.
+	 * Default is 24 hours (1440 minutes). Returns up to 10,000 calls.
+	 * Note: Data may take up to 2 minutes to appear in the log.
+	 *
+	 * @param minutes - Optional time period in minutes (default: 1440)
+	 * @returns Promise resolving to array of outgoing calls
+	 *
+	 * @example
+	 * ```typescript
+	 * // Get all outgoing calls for the last 24 hours
+	 * const calls = await client.lastOutgoingCalls();
+	 * calls.forEach(call => {
+	 *   console.log(`Call to ${call.chatId}: ${call.status}, duration=${call.duration}s`);
+	 * });
+	 * ```
+	 */
+	async lastOutgoingCalls(minutes?: number): Promise<OutgoingCall[]> {
+		return this.makeRequest("get", "lastOutgoingCalls", undefined, minutes ? {minutes} : undefined);
 	}
 
 	// -------------------------------------------------------------------------

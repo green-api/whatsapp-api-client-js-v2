@@ -5,3 +5,4 @@ export * from './contacts';
 export * from './groups';
 export * from './statuses';
 export * from './partner';
+export * from './calls';
