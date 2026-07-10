@@ -8,9 +8,20 @@ export interface BaseMessage {
     quotedMessageId?: string;
 }
 
+export interface CustomPreview {
+    title?: string;
+    description?: string;
+    link?: string;
+    urlFile?: string;
+    jpegThumbnail?: string;
+}
+
 export interface SendMessage extends BaseMessage {
     message: string;
     linkPreview?: boolean;
+    typePreview?: "large" | "small";
+    customPreview?: CustomPreview;
+    typingTime?: number;
 }
 
 export interface SendFileByUrl extends BaseMessage {

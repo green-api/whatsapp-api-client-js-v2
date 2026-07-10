@@ -164,6 +164,9 @@ export class GreenApiClient extends BaseClient {
 			message: message.message,
 			quotedMessageId: message.quotedMessageId,
 			linkPreview: message.linkPreview,
+			typePreview: message.typePreview,
+			customPreview: message.customPreview,
+			typingTime: message.typingTime,
 		});
 	}
 
