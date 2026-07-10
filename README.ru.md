@@ -183,6 +183,54 @@ if (result.deleteInstanceAccount) {
 }
 ```
 
+### Журнал звонков
+
+```typescript
+// Входящие звонки за последний час
+const incomingCalls = await client.lastIncomingCalls(60);
+incomingCalls.forEach(call => {
+    const status = call.status === 'pickUp' ? 'принят' : call.status;
+    console.log(`${call.chatId}: ${status}, видео=${call.isVideo}`);
+});
+
+// Исходящие звонки за последние 24 часа (по умолчанию)
+const outgoingCalls = await client.lastOutgoingCalls();
+outgoingCalls.forEach(call => {
+    console.log(`${call.chatId}: ${call.status}, длительность=${call.duration}с`);
+});
+```
+
+### Управление очередью вебхуков
+
+```typescript
+// Количество ожидающих уведомлений
+const { count } = await client.getWebhooksCount();
+console.log('Ожидающих уведомлений:', count);
+
+// Очистить входящую очередь вебхуков (не чаще раза в минуту)
+const result = await client.clearWebhooksQueue();
+if (!result.isCleared) {
+    console.log(`Слишком частые запросы, повтор через ${result.leftTime}с`);
+}
+```
+
+### Настройки группы (Бета)
+
+```typescript
+// Запретить участникам отправлять сообщения и менять настройки
+await client.updateGroupSettings({
+    groupId: '1234567890123456789@g.us',
+    allowParticipantsSendMessages: false,
+    allowParticipantsEditGroupSettings: false
+});
+
+// Разрешить всем участникам отправлять сообщения
+await client.updateGroupSettings({
+    groupId: '1234567890123456789@g.us',
+    allowParticipantsSendMessages: true
+});
+```
+
 ### Отправка интерактивных кнопок (Бета)
 
 ```typescript
@@ -354,6 +402,8 @@ SDK предоставляет следующие группы методов:
 3. **Методы очереди сообщений**
     - `showMessagesQueue` - отображение очереди сообщений
     - `clearMessagesQueue` - очистка очереди сообщений
+    - `getWebhooksCount` — количество уведомлений в очереди вебхуков
+    - `clearWebhooksQueue` — очистка очереди входящих вебхуков
 
 4. **Сервисные методы**
     - `readChat` - отметить чат как прочитанный
@@ -379,6 +429,7 @@ SDK предоставляет следующие группы методов:
     - `removeAdmin` - снятие прав администратора
     - `setGroupPicture` - установка фото группы
     - `leaveGroup` - выход из группы
+    - `updateGroupSettings` (Бета) — ограничить или разрешить отправку сообщений и изменение настроек участниками
 
 6. **Методы журнала**
     - `getMessage` - получение сообщения

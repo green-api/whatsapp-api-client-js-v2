@@ -120,6 +120,16 @@ export interface ClearMessagesQueue {
 	isCleared: boolean;
 }
 
+export interface GetWebhooksCountResponse {
+	count: number;
+}
+
+export interface ClearWebhooksQueueResponse {
+	isCleared: boolean;
+	reason?: string;
+	leftTime?: number;
+}
+
 export interface DownloadFileResponse {
 	downloadUrl: string;
 }

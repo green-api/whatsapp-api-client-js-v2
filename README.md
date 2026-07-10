@@ -186,6 +186,54 @@ if (result.deleteInstanceAccount) {
 }
 ```
 
+### Getting Incoming Call Logs
+
+```typescript
+// Incoming calls for the last hour
+const incomingCalls = await client.lastIncomingCalls(60);
+incomingCalls.forEach(call => {
+    const status = call.status === 'pickUp' ? 'answered' : call.status;
+    console.log(`${call.chatId}: ${status}, video=${call.isVideo}`);
+});
+
+// Outgoing calls for the last 24 hours (default)
+const outgoingCalls = await client.lastOutgoingCalls();
+outgoingCalls.forEach(call => {
+    console.log(`${call.chatId}: ${call.status}, duration=${call.duration}s`);
+});
+```
+
+### Managing Webhook Queue
+
+```typescript
+// Check how many notifications are pending
+const { count } = await client.getWebhooksCount();
+console.log('Pending notifications:', count);
+
+// Clear the entire incoming webhook queue (max once per minute)
+const result = await client.clearWebhooksQueue();
+if (!result.isCleared) {
+    console.log(`Rate limited, retry in ${result.leftTime}s`);
+}
+```
+
+### Updating Group Settings (Beta)
+
+```typescript
+// Restrict message sending and settings editing to admins only
+await client.updateGroupSettings({
+    groupId: '1234567890123456789@g.us',
+    allowParticipantsSendMessages: false,
+    allowParticipantsEditGroupSettings: false
+});
+
+// Allow all participants to send messages
+await client.updateGroupSettings({
+    groupId: '1234567890123456789@g.us',
+    allowParticipantsSendMessages: true
+});
+```
+
 ### Sending Interactive Buttons (Beta)
 
 ```typescript
@@ -357,6 +405,8 @@ The SDK provides the following groups of methods:
 3. **Message Queue Methods**
     - `showMessagesQueue`
     - `clearMessagesQueue`
+    - `getWebhooksCount` — get the number of pending incoming notifications
+    - `clearWebhooksQueue` — clear the entire incoming webhook notification queue
 
 4. **Service Methods**
     - `readChat`
@@ -382,6 +432,7 @@ The SDK provides the following groups of methods:
     - `removeAdmin`
     - `setGroupPicture`
     - `leaveGroup`
+    - `updateGroupSettings` (Beta) — restrict or allow participant messaging and settings editing
 
 6. **Journal Methods**
     - `getMessage`

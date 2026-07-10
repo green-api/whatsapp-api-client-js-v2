@@ -88,6 +88,10 @@ import {
 	Chat,
 	IncomingCall,
 	OutgoingCall,
+	GetWebhooksCountResponse,
+	ClearWebhooksQueueResponse,
+	UpdateGroupSettings,
+	UpdateGroupSettingsResponse,
 } from "../types";
 
 /**
@@ -598,6 +602,42 @@ export class GreenApiClient extends BaseClient {
 		return this.makeRequest("get", "clearMessagesQueue");
 	}
 
+	/**
+	 * Gets the number of notifications currently in the incoming webhook queue.
+	 * The count is updated once every 10 seconds. Each notification is stored for 24 hours.
+	 *
+	 * @returns Promise resolving to webhook count response
+	 *
+	 * @example
+	 * ```typescript
+	 * const { count } = await client.getWebhooksCount();
+	 * console.log('Pending notifications:', count);
+	 * ```
+	 */
+	async getWebhooksCount(): Promise<GetWebhooksCountResponse> {
+		return this.makeRequest("get", "getWebhooksCount");
+	}
+
+	/**
+	 * Clears the incoming webhook notification queue.
+	 * Can only be called once per minute. Recommended after account blocking or phone number switching.
+	 *
+	 * @returns Promise resolving to clear result with status and optional rate-limit info
+	 *
+	 * @example
+	 * ```typescript
+	 * const result = await client.clearWebhooksQueue();
+	 * if (result.isCleared) {
+	 *   console.log('Webhook queue cleared');
+	 * } else {
+	 *   console.log(`Rate limited, retry in ${result.leftTime}s`);
+	 * }
+	 * ```
+	 */
+	async clearWebhooksQueue(): Promise<ClearWebhooksQueueResponse> {
+		return this.makeRequest("delete", "clearWebhooksQueue");
+	}
+
 	// -------------------------------------------------------------------------
 	// Service Methods
 	// -------------------------------------------------------------------------
@@ -918,6 +958,28 @@ export class GreenApiClient extends BaseClient {
 	 */
 	async leaveGroup(params: LeaveGroup): Promise<LeaveGroupResponse> {
 		return this.makeRequest("post", "leaveGroup", params);
+	}
+
+	/**
+	 * Updates group chat settings (Beta feature).
+	 * Controls whether participants can edit group settings and send messages.
+	 * No error is returned if settings already match the requested values.
+	 *
+	 * @param params - Parameters containing group ID and settings to update
+	 * @returns Promise resolving to update status
+	 *
+	 * @example
+	 * ```typescript
+	 * // Restrict message sending to admins only
+	 * await client.updateGroupSettings({
+	 *   groupId: "1234567890123456789@g.us",
+	 *   allowParticipantsSendMessages: false,
+	 *   allowParticipantsEditGroupSettings: false
+	 * });
+	 * ```
+	 */
+	async updateGroupSettings(params: UpdateGroupSettings): Promise<UpdateGroupSettingsResponse> {
+		return this.makeRequest("post", "updateGroupSettings", params);
 	}
 
 	// -------------------------------------------------------------------------

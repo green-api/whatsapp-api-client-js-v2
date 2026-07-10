@@ -209,6 +209,34 @@ if (result.isCleared) {
 
 ***
 
+### clearWebhooksQueue()
+
+> **clearWebhooksQueue**(): `Promise`\<[`ClearWebhooksQueueResponse`](../interfaces/ClearWebhooksQueueResponse.md)\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Clears the incoming webhook notification queue.
+The method is rate-limited to once every 60 seconds; the response indicates the time remaining if called too soon.
+
+#### Returns
+
+`Promise`\<[`ClearWebhooksQueueResponse`](../interfaces/ClearWebhooksQueueResponse.md)\>
+
+Promise resolving to queue clearing status
+
+#### Example
+
+```typescript
+const result = await client.clearWebhooksQueue();
+if (result.isCleared) {
+  console.log("Webhook queue cleared");
+} else {
+  console.log(`Try again in ${result.leftTime} seconds`);
+}
+```
+
+***
+
 ### createGroup()
 
 > **createGroup**(`params`): `Promise`\<[`CreateGroupResponse`](../interfaces/CreateGroupResponse.md)\>
@@ -595,6 +623,30 @@ const chats = await client.getChats(20);
 chats.forEach(chat => {
   console.log(`${chat.name} (${chat.type}): archived=${chat.archive}`);
 });
+```
+
+***
+
+### getWebhooksCount()
+
+> **getWebhooksCount**(): `Promise`\<[`GetWebhooksCountResponse`](../interfaces/GetWebhooksCountResponse.md)\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Returns the number of notifications currently stored in the incoming webhook queue.
+The count is updated once every 10 seconds.
+
+#### Returns
+
+`Promise`\<[`GetWebhooksCountResponse`](../interfaces/GetWebhooksCountResponse.md)\>
+
+Promise resolving to webhook count response
+
+#### Example
+
+```typescript
+const result = await client.getWebhooksCount();
+console.log(`Pending notifications: ${result.count}`);
 ```
 
 ***
@@ -1926,6 +1978,42 @@ Parameters containing group ID and new name
 `Promise`\<[`UpdateGroupNameResponse`](../interfaces/UpdateGroupNameResponse.md)\>
 
 Promise resolving to update status
+
+***
+
+### updateGroupSettings()
+
+> **updateGroupSettings**(`params`): `Promise`\<[`UpdateGroupSettingsResponse`](../interfaces/UpdateGroupSettingsResponse.md)\>
+
+Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+
+Updates group chat settings (Beta feature).
+Controls whether participants can send messages and edit group settings.
+
+#### Parameters
+
+##### params
+
+[`UpdateGroupSettings`](../interfaces/UpdateGroupSettings.md)
+
+Parameters containing group ID and permission flags
+
+#### Returns
+
+`Promise`\<[`UpdateGroupSettingsResponse`](../interfaces/UpdateGroupSettingsResponse.md)\>
+
+Promise resolving to settings update status
+
+#### Example
+
+```typescript
+// Restrict group to admins only
+await client.updateGroupSettings({
+  groupId: "1234567890123456789@g.us",
+  allowParticipantsSendMessages: false,
+  allowParticipantsEditGroupSettings: false
+});
+```
 
 ***
 
