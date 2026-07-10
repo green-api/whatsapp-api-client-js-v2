@@ -12,7 +12,7 @@ const client = new GreenApiClient({
     apiTokenInstance: config.apiTokenInstance,
 });
 
-const groupId = process.env.GROUP_ID || "120363426085142320@g.us";
+const groupId =  "120363426085142320@g.us";
 
 async function main() {
     // Запретить участникам отправлять сообщения и менять настройки группы
