@@ -19,6 +19,8 @@ export interface SendFileByUrl extends BaseMessage {
         fileName: string;
     };
     caption?: string;
+    typingTime?: number;
+    typingType?: "recording";
 }
 
 export interface SendFileByUpload extends BaseMessage {
@@ -27,6 +29,8 @@ export interface SendFileByUpload extends BaseMessage {
         fileName: string;
     };
     caption?: string;
+    typingTime?: number;
+    typingType?: "recording";
 }
 
 export interface SendPoll extends BaseMessage {

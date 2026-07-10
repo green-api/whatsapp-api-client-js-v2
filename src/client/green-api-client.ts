@@ -192,6 +192,8 @@ export class GreenApiClient extends BaseClient {
 			fileName: message.file.fileName,
 			caption: message.caption,
 			quotedMessageId: message.quotedMessageId,
+			typingTime: message.typingTime,
+			typingType: message.typingType,
 		});
 	}
 
@@ -220,6 +222,8 @@ export class GreenApiClient extends BaseClient {
 		formData.append("fileName", message.file.fileName);
 		if (message.caption) formData.append("caption", message.caption);
 		if (message.quotedMessageId) formData.append("quotedMessageId", message.quotedMessageId);
+		if (message.typingTime) formData.append("typingTime", String(message.typingTime));
+		if (message.typingType) formData.append("typingType", message.typingType);
 
 		return this.makeFileUploadRequest("sendFileByUpload", formData);
 	}
