@@ -94,3 +94,14 @@ export interface LeaveGroupResponse {
     leaveGroup?: boolean;
     removeAdmin?: boolean;
 }
+
+export interface UpdateGroupSettings {
+    groupId: string;
+    allowParticipantsEditGroupSettings?: boolean;
+    allowParticipantsSendMessages?: boolean;
+}
+
+export interface UpdateGroupSettingsResponse {
+    updateGroupSettings: boolean;
+    reason?: string;
+}

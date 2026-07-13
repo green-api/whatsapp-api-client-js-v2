@@ -41,22 +41,28 @@ export interface WaSettings {
  */
 export interface Settings {
 	wid?: string;
+	countryInstance?: string;
 	webhookUrl?: string;
 	webhookUrlToken?: string;
 	delaySendMessagesMilliseconds?: number;
 	markIncomingMessagesReaded?: "yes" | "no";
 	markIncomingMessagesReadedOnReply?: "yes" | "no";
+	sharedSession?: string;
 	outgoingWebhook?: "yes" | "no";
 	outgoingMessageWebhook?: "yes" | "no";
 	outgoingAPIMessageWebhook?: "yes" | "no";
 	stateWebhook?: "yes" | "no";
 	incomingWebhook?: "yes" | "no";
+	deviceWebhook?: "yes" | "no";
 	keepOnlineStatus?: "yes" | "no";
 	pollMessageWebhook?: "yes" | "no";
 	incomingCallWebhook?: "yes" | "no";
 	incomingBlockWebhook?: "yes" | "no";
 	editedMessageWebhook?: "yes" | "no";
 	deletedMessageWebhook?: "yes" | "no";
+	autoTyping?: number;
+	linkPreview?: "yes" | "no";
+	enableLidMode?: "yes" | "no";
 }
 
 export interface SetSettingsResponse {
@@ -77,4 +83,14 @@ export interface SetProfilePicture {
 	reason: string | null;
 	urlAvatar: string;
 	setProfilePicture: boolean;
+}
+
+export interface UpdateApiTokenResponse {
+	apiTokenInstance: string;
+}
+
+export interface StateInstanceHistoryItem {
+	stateInstance: "notAuthorized" | "authorized" | "blocked";
+	timestamp: number;
+	phoneNumber: number;
 }

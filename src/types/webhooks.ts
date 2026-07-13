@@ -12,7 +12,8 @@ export type WebhookType =
     | "outgoingAPIMessageReceived"
     | "outgoingMessageReceived"
     | "incomingMessageReceived"
-    | "incomingCall";
+    | "incomingCall"
+    | "incomingBlock";
 
 /**
  * Webhook payload received when a message status changes.
@@ -80,6 +81,17 @@ export interface IncomingCallWebhook {
     idMessage: string;
 }
 
+export interface IncomingBlockWebhook {
+    typeWebhook: "incomingBlock";
+    instanceData: {
+        idInstance: number;
+        wid: string;
+        typeInstance: string;
+    };
+    timestamp: number;
+    chatId: string;
+}
+
 /**
  * Primary webhook types received from GREEN-API.
  */
@@ -87,4 +99,5 @@ export type GreenApiWebhook =
     MessageWebhook
     | OutgoingMessageStatusWebhook
     | StateInstanceWebhook
-    | IncomingCallWebhook;
+    | IncomingCallWebhook
+    | IncomingBlockWebhook;

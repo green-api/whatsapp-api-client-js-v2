@@ -183,6 +183,138 @@ if (result.deleteInstanceAccount) {
 }
 ```
 
+### Журнал звонков
+
+```typescript
+// Входящие звонки за последний час
+const incomingCalls = await client.lastIncomingCalls(60);
+incomingCalls.forEach(call => {
+    const status = call.status === 'pickUp' ? 'принят' : call.status;
+    console.log(`${call.chatId}: ${status}, видео=${call.isVideo}`);
+});
+
+// Исходящие звонки за последние 24 часа (по умолчанию)
+const outgoingCalls = await client.lastOutgoingCalls();
+outgoingCalls.forEach(call => {
+    console.log(`${call.chatId}: ${call.status}, длительность=${call.duration}с`);
+});
+```
+
+### Управление очередью вебхуков
+
+```typescript
+// Количество ожидающих уведомлений
+const { count } = await client.getWebhooksCount();
+console.log('Ожидающих уведомлений:', count);
+
+// Очистить входящую очередь вебхуков (не чаще раза в минуту)
+const result = await client.clearWebhooksQueue();
+if (!result.isCleared) {
+    console.log(`Слишком частые запросы, повтор через ${result.leftTime}с`);
+}
+```
+
+### Настройки группы (Бета)
+
+```typescript
+// Запретить участникам отправлять сообщения и менять настройки
+await client.updateGroupSettings({
+    groupId: '1234567890123456789@g.us',
+    allowParticipantsSendMessages: false,
+    allowParticipantsEditGroupSettings: false
+});
+
+// Разрешить всем участникам отправлять сообщения
+await client.updateGroupSettings({
+    groupId: '1234567890123456789@g.us',
+    allowParticipantsSendMessages: true
+});
+```
+
+### Отправка интерактивных кнопок (Бета)
+
+```typescript
+// Кнопки с действиями (copy/call/url)
+await client.sendInteractiveButtons({
+    chatId: '1234567890@c.us',
+    header: 'Выберите действие',
+    body: 'Нажмите на одну из кнопок ниже',
+    footer: 'Powered by GREEN-API',
+    buttons: [
+        { type: 'url', buttonId: '1', buttonText: 'Открыть сайт', url: 'https://example.com' },
+        { type: 'call', buttonId: '2', buttonText: 'Позвонить', phoneNumber: '79001234567' },
+        { type: 'copy', buttonId: '3', buttonText: 'Скопировать', copyCode: 'PROMO2025' }
+    ]
+});
+
+// Кнопки с ответом, возвращающие текст в чат
+await client.sendInteractiveButtonsReply({
+    chatId: '1234567890@c.us',
+    header: 'Быстрый ответ',
+    body: 'Как дела?',
+    footer: 'Выберите ответ',
+    buttons: [
+        { buttonId: '1', buttonText: 'Отлично!' },
+        { buttonId: '2', buttonText: 'Неплохо' },
+        { buttonId: '3', buttonText: 'Могло быть лучше' }
+    ]
+});
+```
+
+### Индикатор набора текста
+
+```typescript
+// Показать "печатает..." на 5 секунд
+await client.sendTyping({
+    chatId: '1234567890@c.us',
+    typingTime: 5000
+});
+
+// Показать "записывает аудио..." на 3 секунды
+await client.sendTyping({
+    chatId: '1234567890@c.us',
+    typingTime: 3000,
+    typingType: 'recording'
+});
+```
+
+### Получение чатов и журнала звонков
+
+```typescript
+// Получить 20 последних активных чатов
+const chats = await client.getChats(20);
+chats.forEach(chat => {
+    console.log(`${chat.name} (${chat.type}): архив=${chat.archive}`);
+});
+
+// Получить входящие звонки за последний час
+const incomingCalls = await client.lastIncomingCalls(60);
+incomingCalls.forEach(call => {
+    const status = call.status === 'pickUp' ? 'принят' : call.status;
+    console.log(`Звонок от ${call.chatId}: ${status}, видео=${call.isVideo}`);
+});
+
+// Получить исходящие звонки за последние 24 часа (по умолчанию)
+const outgoingCalls = await client.lastOutgoingCalls();
+outgoingCalls.forEach(call => {
+    console.log(`Звонок на ${call.chatId}: ${call.status}, длительность=${call.duration}с`);
+});
+```
+
+### Ротация токена и история состояний инстанса
+
+```typescript
+// Сгенерировать новый API токен (старый токен немедленно аннулируется)
+const result = await client.updateApiToken();
+console.log('Новый токен:', result.apiTokenInstance);
+
+// Получить историю изменений состояния инстанса
+const history = await client.getStateInstanceHistory(50);
+history.forEach(item => {
+    console.log(`${item.stateInstance} в ${new Date(item.timestamp * 1000).toISOString()}`);
+});
+```
+
 ### Редактирование и удаление сообщений
 
 ```typescript
@@ -251,6 +383,8 @@ SDK предоставляет следующие группы методов:
     - `sendLocation` - отправка местоположения
     - `sendContact` - отправка контакта
     - `uploadFile` - загрузка файла
+    - `sendInteractiveButtons` (Бета) — отправка кнопок с действиями copy/call/url
+    - `sendInteractiveButtonsReply` (Бета) — отправка кнопок с ответом в чат
 
 2. **Методы управления аккаунтом**
     - `reboot` - перезагрузка
@@ -262,10 +396,14 @@ SDK предоставляет следующие группы методов:
     - `getWaSettings` - получение настроек WhatsApp
     - `setProfilePicture` - установка фото профиля
     - `getAuthorizationCode` - получение кода авторизации
+    - `updateApiToken` (Бета) — генерация нового API токена (старый немедленно аннулируется)
+    - `getStateInstanceHistory` — история изменений состояния инстанса
 
 3. **Методы очереди сообщений**
     - `showMessagesQueue` - отображение очереди сообщений
     - `clearMessagesQueue` - очистка очереди сообщений
+    - `getWebhooksCount` — количество уведомлений в очереди вебхуков
+    - `clearWebhooksQueue` — очистка очереди входящих вебхуков
 
 4. **Сервисные методы**
     - `readChat` - отметить чат как прочитанный
@@ -278,6 +416,8 @@ SDK предоставляет следующие группы методов:
     - `setDisappearingChat` - настройка исчезающих сообщений
     - `editMessage` - редактирование сообщения
     - `deleteMessage` - удаление сообщения
+    - `sendTyping` — отправка индикатора набора текста или записи аудио
+    - `getChats` — получение списка чатов по времени последней активности
 
 5. **Методы управления группами**
     - `createGroup` - создание группы
@@ -289,12 +429,15 @@ SDK предоставляет следующие группы методов:
     - `removeAdmin` - снятие прав администратора
     - `setGroupPicture` - установка фото группы
     - `leaveGroup` - выход из группы
+    - `updateGroupSettings` (Бета) — ограничить или разрешить отправку сообщений и изменение настроек участниками
 
 6. **Методы журнала**
     - `getMessage` - получение сообщения
     - `getChatHistory` - получение истории чата
     - `lastIncomingMessages` - последние входящие сообщения
     - `lastOutgoingMessages` - последние исходящие сообщения
+    - `lastIncomingCalls` — журнал входящих звонков
+    - `lastOutgoingCalls` — журнал исходящих звонков
 
 7. **Методы получения сообщений**
     - `receiveNotification` - получение уведомления из очереди

@@ -8,9 +8,20 @@ export interface BaseMessage {
     quotedMessageId?: string;
 }
 
+export interface CustomPreview {
+    title?: string;
+    description?: string;
+    link?: string;
+    urlFile?: string;
+    jpegThumbnail?: string;
+}
+
 export interface SendMessage extends BaseMessage {
     message: string;
     linkPreview?: boolean;
+    typePreview?: "large" | "small";
+    customPreview?: CustomPreview;
+    typingTime?: number;
 }
 
 export interface SendFileByUrl extends BaseMessage {
@@ -19,6 +30,8 @@ export interface SendFileByUrl extends BaseMessage {
         fileName: string;
     };
     caption?: string;
+    typingTime?: number;
+    typingType?: "recording";
 }
 
 export interface SendFileByUpload extends BaseMessage {
@@ -27,6 +40,8 @@ export interface SendFileByUpload extends BaseMessage {
         fileName: string;
     };
     caption?: string;
+    typingTime?: number;
+    typingType?: "recording";
 }
 
 export interface SendPoll extends BaseMessage {
@@ -118,6 +133,16 @@ export interface QueueMessage {
 
 export interface ClearMessagesQueue {
 	isCleared: boolean;
+}
+
+export interface GetWebhooksCountResponse {
+	count: number;
+}
+
+export interface ClearWebhooksQueueResponse {
+	isCleared: boolean;
+	reason?: string;
+	leftTime?: number;
 }
 
 export interface DownloadFileResponse {
@@ -446,6 +471,53 @@ export interface PollUpdateMessageData {
 	name: string;
 	votes: PollVote[];
 	multipleAnswers: boolean;
+}
+
+export type InteractiveButtonType = "copy" | "call" | "url";
+
+export interface InteractiveButton {
+	type: InteractiveButtonType;
+	buttonId: string;
+	buttonText: string;
+	copyCode?: string;
+	phoneNumber?: string;
+	url?: string;
+}
+
+export interface InteractiveButtonReply {
+	buttonId: string;
+	buttonText: string;
+}
+
+export interface SendInteractiveButtons {
+	chatId: string;
+	header?: string;
+	body: string;
+	footer?: string;
+	buttons: InteractiveButton[];
+}
+
+export interface SendInteractiveButtonsReply {
+	chatId: string;
+	header?: string;
+	body: string;
+	footer?: string;
+	buttons: InteractiveButtonReply[];
+}
+
+export interface SendTyping {
+	chatId: string;
+	typingTime?: number;
+	typingType?: "recording";
+}
+
+export interface Chat {
+	archive: boolean;
+	id: string;
+	ephemeralExpiration: 0 | 86400 | 604800 | 7776000;
+	ephemeralSettingTimestamp: number;
+	name: string;
+	type: "user" | "group";
 }
 
 export type OutgoingMessageStatus =
