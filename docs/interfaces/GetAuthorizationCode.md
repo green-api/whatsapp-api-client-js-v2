@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: GetAuthorizationCode
 
-Defined in: [types/instance.ts:71](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L71)
+Defined in: [types/instance.ts:78](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L78)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/instance.ts:71](https://github.com/green-api/whatsapp-api-cli
 
 > **code**: `string`
 
-Defined in: [types/instance.ts:73](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L73)
+Defined in: [types/instance.ts:80](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L80)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/instance.ts:73](https://github.com/green-api/whatsapp-api-cli
 
 > **status**: `boolean`
 
-Defined in: [types/instance.ts:72](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L72)
+Defined in: [types/instance.ts:79](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L79)

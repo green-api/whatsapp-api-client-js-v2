@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: PollVote
 
-Defined in: [types/messages.ts:439](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L439)
+Defined in: [types/messages.ts:464](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L464)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/messages.ts:439](https://github.com/green-api/whatsapp-api-cl
 
 > **optionName**: `string`
 
-Defined in: [types/messages.ts:440](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L440)
+Defined in: [types/messages.ts:465](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L465)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/messages.ts:440](https://github.com/green-api/whatsapp-api-cl
 
 > **optionVoters**: `string`[]
 
-Defined in: [types/messages.ts:441](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L441)
+Defined in: [types/messages.ts:466](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L466)

@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: TextMessageData
 
-Defined in: [types/messages.ts:244](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L244)
+Defined in: [types/messages.ts:269](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L269)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [types/messages.ts:244](https://github.com/green-api/whatsapp-api-cl
 
 > **textMessage**: `string`
 
-Defined in: [types/messages.ts:245](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L245)
+Defined in: [types/messages.ts:270](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L270)

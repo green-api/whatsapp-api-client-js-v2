@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: TemplateButtonData
 
-Defined in: [types/messages.ts:307](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L307)
+Defined in: [types/messages.ts:332](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L332)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/messages.ts:307](https://github.com/green-api/whatsapp-api-cl
 
 > `optional` **callButton**: [`CallButtonData`](CallButtonData.md)
 
-Defined in: [types/messages.ts:310](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L310)
+Defined in: [types/messages.ts:335](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L335)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/messages.ts:310](https://github.com/green-api/whatsapp-api-cl
 
 > **index**: `number`
 
-Defined in: [types/messages.ts:308](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L308)
+Defined in: [types/messages.ts:333](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L333)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/messages.ts:308](https://github.com/green-api/whatsapp-api-cl
 
 > `optional` **quickReplyButton**: [`QuickReplyButtonData`](QuickReplyButtonData.md)
 
-Defined in: [types/messages.ts:311](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L311)
+Defined in: [types/messages.ts:336](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L336)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [types/messages.ts:311](https://github.com/green-api/whatsapp-api-cl
 
 > `optional` **urlButton**: [`UrlButtonData`](UrlButtonData.md)
 
-Defined in: [types/messages.ts:309](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L309)
+Defined in: [types/messages.ts:334](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L334)

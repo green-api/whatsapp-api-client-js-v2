@@ -1,4 +1,4 @@
-**GREEN-API WhatsApp SDK v2 v1.0.3**
+**GREEN-API WhatsApp SDK v2 v1.3.0**
 
 ***
 
@@ -190,6 +190,138 @@ if (result.deleteInstanceAccount) {
 }
 ```
 
+### Getting Incoming Call Logs
+
+```typescript
+// Incoming calls for the last hour
+const incomingCalls = await client.lastIncomingCalls(60);
+incomingCalls.forEach(call => {
+    const status = call.status === 'pickUp' ? 'answered' : call.status;
+    console.log(`${call.chatId}: ${status}, video=${call.isVideo}`);
+});
+
+// Outgoing calls for the last 24 hours (default)
+const outgoingCalls = await client.lastOutgoingCalls();
+outgoingCalls.forEach(call => {
+    console.log(`${call.chatId}: ${call.status}, duration=${call.duration}s`);
+});
+```
+
+### Managing Webhook Queue
+
+```typescript
+// Check how many notifications are pending
+const { count } = await client.getWebhooksCount();
+console.log('Pending notifications:', count);
+
+// Clear the entire incoming webhook queue (max once per minute)
+const result = await client.clearWebhooksQueue();
+if (!result.isCleared) {
+    console.log(`Rate limited, retry in ${result.leftTime}s`);
+}
+```
+
+### Updating Group Settings (Beta)
+
+```typescript
+// Restrict message sending and settings editing to admins only
+await client.updateGroupSettings({
+    groupId: '1234567890123456789@g.us',
+    allowParticipantsSendMessages: false,
+    allowParticipantsEditGroupSettings: false
+});
+
+// Allow all participants to send messages
+await client.updateGroupSettings({
+    groupId: '1234567890123456789@g.us',
+    allowParticipantsSendMessages: true
+});
+```
+
+### Sending Interactive Buttons (Beta)
+
+```typescript
+// Buttons with actions (copy/call/url)
+await client.sendInteractiveButtons({
+    chatId: '1234567890@c.us',
+    header: 'Choose an action',
+    body: 'Please select one of the options below',
+    footer: 'Powered by GREEN-API',
+    buttons: [
+        { type: 'url', buttonId: '1', buttonText: 'Visit site', url: 'https://example.com' },
+        { type: 'call', buttonId: '2', buttonText: 'Call us', phoneNumber: '79001234567' },
+        { type: 'copy', buttonId: '3', buttonText: 'Copy code', copyCode: 'PROMO2025' }
+    ]
+});
+
+// Reply buttons that return text to the chat
+await client.sendInteractiveButtonsReply({
+    chatId: '1234567890@c.us',
+    header: 'Quick reply',
+    body: 'How are you?',
+    footer: 'Select an answer',
+    buttons: [
+        { buttonId: '1', buttonText: 'Great!' },
+        { buttonId: '2', buttonText: 'Not bad' },
+        { buttonId: '3', buttonText: 'Could be better' }
+    ]
+});
+```
+
+### Sending Typing Indicator
+
+```typescript
+// Show "typing..." for 5 seconds
+await client.sendTyping({
+    chatId: '1234567890@c.us',
+    typingTime: 5000
+});
+
+// Show "recording audio..." for 3 seconds
+await client.sendTyping({
+    chatId: '1234567890@c.us',
+    typingTime: 3000,
+    typingType: 'recording'
+});
+```
+
+### Getting Chats and Calls Journal
+
+```typescript
+// Get 20 most recent chats
+const chats = await client.getChats(20);
+chats.forEach(chat => {
+    console.log(`${chat.name} (${chat.type}): archived=${chat.archive}`);
+});
+
+// Get incoming calls for the last hour
+const incomingCalls = await client.lastIncomingCalls(60);
+incomingCalls.forEach(call => {
+    const answered = call.status === 'pickUp' ? 'answered' : call.status;
+    console.log(`Call from ${call.chatId}: ${answered}, video=${call.isVideo}`);
+});
+
+// Get outgoing calls for the last 24 hours (default)
+const outgoingCalls = await client.lastOutgoingCalls();
+outgoingCalls.forEach(call => {
+    console.log(`Call to ${call.chatId}: ${call.status}, duration=${call.duration}s`);
+});
+```
+
+### Account Token Rotation and State History
+
+```typescript
+// Generate a new API token (old token is immediately invalidated)
+const result = await client.updateApiToken();
+console.log('New token:', result.apiTokenInstance);
+
+// Get instance state change history
+const history = await client.getStateInstanceHistory(50);
+history.forEach(item => {
+    console.log(`${item.stateInstance} at ${new Date(item.timestamp * 1000).toISOString()}`);
+});
+```
+
 ### Editing and Deleting Messages
 
 ```typescript
@@ -245,6 +377,92 @@ const deleteResult = await client.deleteContact({
 console.log('Delete contact result:', deleteResult.deleteContact);
 ```
 
+### Voice Calls
+
+WhatsApp voice calls from the instance: 1:1 only, one call at a time, on plans that include calls. Outgoing calls work only
+to chats that wrote or called the instance in the last 72 hours.
+
+The control methods work out of the box. To hear the other side and play audio into the call, install the optional
+dependencies (Node.js 18 or newer):
+
+```bash
+npm install werift@^0.25.2 ws
+```
+
+Outgoing call that plays a message:
+
+```typescript
+import { GreenApiClient, CallError } from '@green-api/whatsapp-api-client-js-v2';
+
+const calls = client.connectCalls();
+await calls.open();
+
+const { callId } = await client.callsDial({ chatId: '79001234567@c.us' });
+await calls.startAudioBridge();
+await calls.waitFor('on-call', 60000);
+await calls.play('./hello.ogg');
+await client.callsHangUp();
+calls.close();
+```
+
+Answering incoming calls:
+
+```typescript
+const calls = client.connectCalls();
+
+calls.on('incoming-call', async (info) => {
+    console.log('Call from', info.name || info.wid);
+    await client.callsAccept();
+    await calls.startAudioBridge();
+    await calls.play('./greeting.ogg');
+    await client.callsHangUp();
+});
+calls.on('state', (state) => console.log('Call state:', state.state));
+calls.on('end-call', (detail) => console.log('Call ended:', detail.description));
+calls.on('remote-audio', (audio) => console.log('Opus packet from the other side:', audio.payload.length, 'bytes'));
+
+await calls.open();
+```
+
+Realtime audio in both directions: `sendPcm()` sends 16-bit mono PCM into the call as it comes, in chunks of any size,
+and the `remote-pcm` event gives the other side's audio as PCM. It needs the Opus codec as well:
+
+```bash
+npm install opusscript
+```
+
+```typescript
+const calls = client.connectCalls({ pcmSampleRate: 24000 });
+
+calls.on('remote-pcm', (pcm) => setTimeout(() => calls.sendPcm(pcm), 1500));
+calls.on('incoming-call', async () => {
+    await client.callsAccept();
+    await calls.startAudioBridge();
+});
+
+await calls.open();
+```
+
+- `pcmSampleRate` is 8000, 12000, 16000, 24000 (default) or 48000, the same for both directions.
+- `remote-pcm` keeps real time: when the other side is silent and its phone sends no audio, or packets are lost, the
+  gap arrives as silence together with the next audio.
+- `clearAudio()` drops the audio that is queued and not sent yet, `drainAudio()` waits until it is sent,
+  `pendingAudioMs` says how much is queued.
+- `play()` takes a file path, an http(s) URL, a Buffer or a stream. Ogg Opus files play as they are, other formats
+  (mp3, wav and so on) need [ffmpeg](https://ffmpeg.org/) on the PATH or `{ ffmpegPath }`. `play()` and `sendPcm()`
+  replace each other.
+- Calls methods and the connection throw `CallError` with a `code` and a readable `message`, for example
+  `INVALID_CREDENTIALS`, `INVALID_CHAT_ID`, `NO_RECENT_CONTACT`, `NOT_IN_TARIFF`, `ALREADY_IN_CALL`, `NO_ACTIVE_CALL`.
+- `callsDial` returns the `callId`. It is the `idMessage` of the call webhooks and the input of
+  `getCallRecording({ idMessage: callId })`.
+- Call webhooks: enable `incomingCallWebhook` and `outgoingCallWebhook` with `setSettings`, `isCallWebhook()` narrows a
+  webhook to the call types.
+
+Runnable examples: [outgoingCall.js](_media/outgoingCall.js), [incomingCall.js](_media/incomingCall.js),
+[echoCall.js](_media/echoCall.js), [callErrors.js](_media/callErrors.js),
+[callRecording.js](_media/callRecording.js). Calls documentation:
+[WhatsApp Calling API](https://green-api.com/en/docs/calls/).
+
 ## SDK methods
 
 The SDK provides the following groups of methods:
@@ -258,6 +476,8 @@ The SDK provides the following groups of methods:
     - `sendLocation`
     - `sendContact`
     - `uploadFile`
+    - `sendInteractiveButtons` (Beta) — send buttons with copy/call/url actions
+    - `sendInteractiveButtonsReply` (Beta) — send reply buttons that return text to the chat
 
 2. **Account Management Methods**
     - `reboot`
@@ -269,10 +489,14 @@ The SDK provides the following groups of methods:
     - `getWaSettings`
     - `setProfilePicture`
     - `getAuthorizationCode`
+    - `updateApiToken` (Beta) — generate a new API token (old token is immediately invalidated)
+    - `getStateInstanceHistory` — get instance state change history
 
 3. **Message Queue Methods**
     - `showMessagesQueue`
     - `clearMessagesQueue`
+    - `getWebhooksCount` — get the number of pending incoming notifications
+    - `clearWebhooksQueue` — clear the entire incoming webhook notification queue
 
 4. **Service Methods**
     - `readChat`
@@ -285,6 +509,8 @@ The SDK provides the following groups of methods:
     - `setDisappearingChat`
     - `editMessage`
     - `deleteMessage`
+    - `sendTyping` — send a typing or audio recording indicator
+    - `getChats` — get a list of chats sorted by last activity
 
 5. **Group Management Methods**
     - `createGroup`
@@ -296,12 +522,15 @@ The SDK provides the following groups of methods:
     - `removeAdmin`
     - `setGroupPicture`
     - `leaveGroup`
+    - `updateGroupSettings` (Beta) — restrict or allow participant messaging and settings editing
 
 6. **Journal Methods**
     - `getMessage`
     - `getChatHistory`
     - `lastIncomingMessages`
     - `lastOutgoingMessages`
+    - `lastIncomingCalls` — get incoming calls log
+    - `lastOutgoingCalls` — get outgoing calls log
 
 7. **Message Receiving Methods**
     - `receiveNotification`
@@ -326,6 +555,16 @@ The SDK provides the following groups of methods:
     - `getInstances`
     - `createInstance`
     - `deleteInstanceAccount`
+
+11. **Calls Methods**
+    - `callsDial` - start an outgoing call
+    - `callsAccept`
+    - `callsReject`
+    - `callsHangUp`
+    - `callsState`
+    - `callsGetIceServers`
+    - `getCallRecording`
+    - `connectCalls` - live calls connection: call state, incoming calls, audio files and realtime audio in both directions
 
 ## License
 

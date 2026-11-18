@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: UpdateGroupSettingsResponse
 
-Defined in: [types/groups.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/groups.ts)
-
-Response from the updateGroupSettings method.
+Defined in: [types/groups.ts:104](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/groups.ts#L104)
 
 ## Properties
 
@@ -16,7 +14,7 @@ Response from the updateGroupSettings method.
 
 > `optional` **reason**: `string`
 
-Error description. Only present when `updateGroupSettings` is `false`.
+Defined in: [types/groups.ts:106](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/groups.ts#L106)
 
 ***
 
@@ -24,4 +22,4 @@ Error description. Only present when `updateGroupSettings` is `false`.
 
 > **updateGroupSettings**: `boolean`
 
-Whether the settings were successfully applied.
+Defined in: [types/groups.ts:105](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/groups.ts#L105)

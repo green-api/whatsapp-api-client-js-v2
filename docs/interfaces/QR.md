@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: QR
 
-Defined in: [types/instance.ts:66](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L66)
+Defined in: [types/instance.ts:73](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L73)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/instance.ts:66](https://github.com/green-api/whatsapp-api-cli
 
 > **message**: `string`
 
-Defined in: [types/instance.ts:68](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L68)
+Defined in: [types/instance.ts:75](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L75)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/instance.ts:68](https://github.com/green-api/whatsapp-api-cli
 
 > **type**: `"qrCode"` \| `"error"` \| `"alreadyLogged"`
 
-Defined in: [types/instance.ts:67](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L67)
+Defined in: [types/instance.ts:74](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L74)

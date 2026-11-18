@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: OutgoingCall
 
-Defined in: [types/calls.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/calls.ts)
-
-Represents an outgoing call entry from the lastOutgoingCalls journal.
+Defined in: [types/calls.ts:25](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L25)
 
 ## Properties
 
@@ -16,7 +14,7 @@ Represents an outgoing call entry from the lastOutgoingCalls journal.
 
 > **chatId**: `string`
 
-Chat identifier where the call occurred.
+Defined in: [types/calls.ts:30](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L30)
 
 ***
 
@@ -24,7 +22,7 @@ Chat identifier where the call occurred.
 
 > **duration**: `number`
 
-Call duration in seconds.
+Defined in: [types/calls.ts:31](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L31)
 
 ***
 
@@ -32,7 +30,7 @@ Call duration in seconds.
 
 > **idMessage**: `string`
 
-Unique identifier for the outgoing call.
+Defined in: [types/calls.ts:27](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L27)
 
 ***
 
@@ -40,7 +38,7 @@ Unique identifier for the outgoing call.
 
 > **isVideo**: `boolean`
 
-Whether it was a video call.
+Defined in: [types/calls.ts:32](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L32)
 
 ***
 
@@ -48,7 +46,15 @@ Whether it was a video call.
 
 > **participants**: [`OutgoingCallParticipant`](OutgoingCallParticipant.md)[]
 
-Array of individual participant statuses.
+Defined in: [types/calls.ts:34](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L34)
+
+***
+
+### sendByApi?
+
+> `optional` **sendByApi**: `boolean`
+
+Defined in: [types/calls.ts:35](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L35)
 
 ***
 
@@ -56,7 +62,7 @@ Array of individual participant statuses.
 
 > **status**: [`OutgoingCallStatus`](../type-aliases/OutgoingCallStatus.md)
 
-Overall call status: `pickUp`, `hungUp`, `invalid`, or `declined`.
+Defined in: [types/calls.ts:33](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L33)
 
 ***
 
@@ -64,7 +70,7 @@ Overall call status: `pickUp`, `hungUp`, `invalid`, or `declined`.
 
 > **timestamp**: `number`
 
-Call end time in UNIX format.
+Defined in: [types/calls.ts:28](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L28)
 
 ***
 
@@ -72,8 +78,12 @@ Call end time in UNIX format.
 
 > **type**: `"outgoing"`
 
+Defined in: [types/calls.ts:26](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L26)
+
 ***
 
 ### typeMessage
 
 > **typeMessage**: `"outgoingCall"`
+
+Defined in: [types/calls.ts:29](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L29)

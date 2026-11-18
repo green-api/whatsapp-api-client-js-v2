@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: Chat
 
-Defined in: [types/messages.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/messages.ts)
-
-Represents a WhatsApp chat entry returned by the getChats method.
+Defined in: [types/messages.ts:514](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L514)
 
 ## Properties
 
@@ -16,7 +14,7 @@ Represents a WhatsApp chat entry returned by the getChats method.
 
 > **archive**: `boolean`
 
-Whether the chat is archived.
+Defined in: [types/messages.ts:515](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L515)
 
 ***
 
@@ -24,7 +22,7 @@ Whether the chat is archived.
 
 > **ephemeralExpiration**: `0` \| `86400` \| `604800` \| `7776000`
 
-Message lifespan in seconds. 0 means disabled.
+Defined in: [types/messages.ts:517](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L517)
 
 ***
 
@@ -32,7 +30,7 @@ Message lifespan in seconds. 0 means disabled.
 
 > **ephemeralSettingTimestamp**: `number`
 
-Timestamp of the last ephemeral setting change in UNIX format.
+Defined in: [types/messages.ts:518](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L518)
 
 ***
 
@@ -40,7 +38,7 @@ Timestamp of the last ephemeral setting change in UNIX format.
 
 > **id**: `string`
 
-Chat identifier.
+Defined in: [types/messages.ts:516](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L516)
 
 ***
 
@@ -48,7 +46,7 @@ Chat identifier.
 
 > **name**: `string`
 
-Contact or group name.
+Defined in: [types/messages.ts:519](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L519)
 
 ***
 
@@ -56,4 +54,4 @@ Contact or group name.
 
 > **type**: `"user"` \| `"group"`
 
-Chat type.
+Defined in: [types/messages.ts:520](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L520)

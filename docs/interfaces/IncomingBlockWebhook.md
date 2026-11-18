@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: IncomingBlockWebhook
 
-Defined in: [types/webhooks.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/webhooks.ts)
-
-Webhook payload received when a contact blocks the account.
+Defined in: [types/webhooks.ts:113](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L113)
 
 ## Properties
 
@@ -16,13 +14,15 @@ Webhook payload received when a contact blocks the account.
 
 > **chatId**: `string`
 
-Identifier of the chat where the block occurred.
+Defined in: [types/webhooks.ts:121](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L121)
 
 ***
 
 ### instanceData
 
 > **instanceData**: `object`
+
+Defined in: [types/webhooks.ts:115](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L115)
 
 #### idInstance
 
@@ -42,10 +42,12 @@ Identifier of the chat where the block occurred.
 
 > **timestamp**: `number`
 
-Event time in UNIX format.
+Defined in: [types/webhooks.ts:120](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L120)
 
 ***
 
 ### typeWebhook
 
 > **typeWebhook**: `"incomingBlock"`
+
+Defined in: [types/webhooks.ts:114](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L114)

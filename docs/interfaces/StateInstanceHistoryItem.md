@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: StateInstanceHistoryItem
 
-Defined in: [types/instance.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/instance.ts)
-
-Represents a single state change record from the instance state history.
+Defined in: [types/instance.ts:93](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L93)
 
 ## Properties
 
@@ -16,7 +14,7 @@ Represents a single state change record from the instance state history.
 
 > **phoneNumber**: `number`
 
-Phone number associated with this state.
+Defined in: [types/instance.ts:96](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L96)
 
 ***
 
@@ -24,7 +22,7 @@ Phone number associated with this state.
 
 > **stateInstance**: `"notAuthorized"` \| `"authorized"` \| `"blocked"`
 
-Instance state at the time of the event.
+Defined in: [types/instance.ts:94](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L94)
 
 ***
 
@@ -32,4 +30,4 @@ Instance state at the time of the event.
 
 > **timestamp**: `number`
 
-Event time in UNIX format.
+Defined in: [types/instance.ts:95](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L95)

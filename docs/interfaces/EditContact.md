@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: EditContact
 
-Defined in: [types/contacts.ts:98](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L98)
+Defined in: [types/contacts.ts:98](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/contacts.ts#L98)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/contacts.ts:98](https://github.com/green-api/whatsapp-api-cli
 
 > **chatId**: `string`
 
-Defined in: [types/contacts.ts:99](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L99)
+Defined in: [types/contacts.ts:99](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/contacts.ts#L99)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/contacts.ts:99](https://github.com/green-api/whatsapp-api-cli
 
 > **firstName**: `string`
 
-Defined in: [types/contacts.ts:100](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L100)
+Defined in: [types/contacts.ts:100](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/contacts.ts#L100)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/contacts.ts:100](https://github.com/green-api/whatsapp-api-cl
 
 > `optional` **lastName**: `string`
 
-Defined in: [types/contacts.ts:101](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L101)
+Defined in: [types/contacts.ts:101](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/contacts.ts#L101)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [types/contacts.ts:101](https://github.com/green-api/whatsapp-api-cl
 
 > `optional` **saveInAddressbook**: `boolean`
 
-Defined in: [types/contacts.ts:102](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/contacts.ts#L102)
+Defined in: [types/contacts.ts:102](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/contacts.ts#L102)

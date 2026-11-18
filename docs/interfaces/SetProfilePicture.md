@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: SetProfilePicture
 
-Defined in: [types/instance.ts:76](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L76)
+Defined in: [types/instance.ts:83](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L83)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/instance.ts:76](https://github.com/green-api/whatsapp-api-cli
 
 > **reason**: `null` \| `string`
 
-Defined in: [types/instance.ts:77](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L77)
+Defined in: [types/instance.ts:84](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L84)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/instance.ts:77](https://github.com/green-api/whatsapp-api-cli
 
 > **setProfilePicture**: `boolean`
 
-Defined in: [types/instance.ts:79](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L79)
+Defined in: [types/instance.ts:86](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L86)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [types/instance.ts:79](https://github.com/green-api/whatsapp-api-cli
 
 > **urlAvatar**: `string`
 
-Defined in: [types/instance.ts:78](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L78)
+Defined in: [types/instance.ts:85](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L85)

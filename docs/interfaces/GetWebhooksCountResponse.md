@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: GetWebhooksCountResponse
 
-Defined in: [types/messages.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/messages.ts)
-
-Response from the getWebhooksCount method.
+Defined in: [types/messages.ts:138](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L138)
 
 ## Properties
 
@@ -16,4 +14,4 @@ Response from the getWebhooksCount method.
 
 > **count**: `number`
 
-Number of notifications currently in the incoming webhook queue. Updated once every 10 seconds.
+Defined in: [types/messages.ts:139](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L139)

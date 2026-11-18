@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: ClearWebhooksQueueResponse
 
-Defined in: [types/messages.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/messages.ts)
-
-Response from the clearWebhooksQueue method.
+Defined in: [types/messages.ts:142](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L142)
 
 ## Properties
 
@@ -16,7 +14,7 @@ Response from the clearWebhooksQueue method.
 
 > **isCleared**: `boolean`
 
-Whether the queue was successfully cleared.
+Defined in: [types/messages.ts:143](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L143)
 
 ***
 
@@ -24,7 +22,7 @@ Whether the queue was successfully cleared.
 
 > `optional` **leftTime**: `number`
 
-Seconds remaining until the next call is allowed. Present when rate-limited.
+Defined in: [types/messages.ts:145](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L145)
 
 ***
 
@@ -32,4 +30,4 @@ Seconds remaining until the next call is allowed. Present when rate-limited.
 
 > `optional` **reason**: `string`
 
-Error description. Present when `isCleared` is `false`.
+Defined in: [types/messages.ts:144](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L144)

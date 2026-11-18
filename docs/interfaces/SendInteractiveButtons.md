@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,10 +6,7 @@
 
 # Interface: SendInteractiveButtons
 
-Defined in: [types/messages.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/messages.ts)
-
-Parameters for sending a message with interactive action buttons (copy/call/url) to a private chat.
-Supports up to 3 buttons per message. Beta feature.
+Defined in: [types/messages.ts:492](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L492)
 
 ## Properties
 
@@ -17,7 +14,7 @@ Supports up to 3 buttons per message. Beta feature.
 
 > **body**: `string`
 
-Main message text. Maximum 20,000 characters.
+Defined in: [types/messages.ts:495](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L495)
 
 ***
 
@@ -25,7 +22,7 @@ Main message text. Maximum 20,000 characters.
 
 > **buttons**: [`InteractiveButton`](InteractiveButton.md)[]
 
-Array of interactive buttons. Maximum 3 buttons.
+Defined in: [types/messages.ts:497](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L497)
 
 ***
 
@@ -33,7 +30,7 @@ Array of interactive buttons. Maximum 3 buttons.
 
 > **chatId**: `string`
 
-Chat identifier.
+Defined in: [types/messages.ts:493](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L493)
 
 ***
 
@@ -41,7 +38,7 @@ Chat identifier.
 
 > `optional` **footer**: `string`
 
-Footer text displayed below the message body.
+Defined in: [types/messages.ts:496](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L496)
 
 ***
 
@@ -49,4 +46,4 @@ Footer text displayed below the message body.
 
 > `optional` **header**: `string`
 
-Header text displayed above the message body.
+Defined in: [types/messages.ts:494](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L494)

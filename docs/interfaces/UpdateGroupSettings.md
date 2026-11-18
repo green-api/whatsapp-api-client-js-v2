@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: UpdateGroupSettings
 
-Defined in: [types/groups.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/groups.ts)
-
-Parameters for updating group chat settings. Beta feature.
+Defined in: [types/groups.ts:98](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/groups.ts#L98)
 
 ## Properties
 
@@ -16,7 +14,7 @@ Parameters for updating group chat settings. Beta feature.
 
 > `optional` **allowParticipantsEditGroupSettings**: `boolean`
 
-Whether participants can edit the group name, picture, description, disappearing message timer, and message pinning.
+Defined in: [types/groups.ts:100](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/groups.ts#L100)
 
 ***
 
@@ -24,7 +22,7 @@ Whether participants can edit the group name, picture, description, disappearing
 
 > `optional` **allowParticipantsSendMessages**: `boolean`
 
-Whether participants can send messages to the group.
+Defined in: [types/groups.ts:101](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/groups.ts#L101)
 
 ***
 
@@ -32,4 +30,4 @@ Whether participants can send messages to the group.
 
 > **groupId**: `string`
 
-Group chat identifier.
+Defined in: [types/groups.ts:99](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/groups.ts#L99)

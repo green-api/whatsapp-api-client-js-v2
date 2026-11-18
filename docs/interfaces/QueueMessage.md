@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: QueueMessage
 
-Defined in: [types/messages.ts:112](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L112)
+Defined in: [types/messages.ts:127](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L127)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/messages.ts:112](https://github.com/green-api/whatsapp-api-cl
 
 > **body**: [`QueueMessageBody`](../type-aliases/QueueMessageBody.md)
 
-Defined in: [types/messages.ts:116](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L116)
+Defined in: [types/messages.ts:131](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L131)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/messages.ts:116](https://github.com/green-api/whatsapp-api-cl
 
 > `optional` **messageID**: `string`
 
-Defined in: [types/messages.ts:113](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L113)
+Defined in: [types/messages.ts:128](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L128)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/messages.ts:113](https://github.com/green-api/whatsapp-api-cl
 
 > `optional` **messagesIDs**: `string`[]
 
-Defined in: [types/messages.ts:114](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L114)
+Defined in: [types/messages.ts:129](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L129)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [types/messages.ts:114](https://github.com/green-api/whatsapp-api-cl
 
 > **type**: [`QueueMessageType`](../type-aliases/QueueMessageType.md)
 
-Defined in: [types/messages.ts:115](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L115)
+Defined in: [types/messages.ts:130](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L130)

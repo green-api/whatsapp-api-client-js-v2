@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,10 +6,7 @@
 
 # Interface: InteractiveButton
 
-Defined in: [types/messages.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/messages.ts)
-
-Represents a single interactive action button for use with sendInteractiveButtons.
-Button text is limited to 25 characters and a maximum of 3 buttons are allowed per message.
+Defined in: [types/messages.ts:478](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L478)
 
 ## Properties
 
@@ -17,7 +14,7 @@ Button text is limited to 25 characters and a maximum of 3 buttons are allowed p
 
 > **buttonId**: `string`
 
-Unique button identifier.
+Defined in: [types/messages.ts:480](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L480)
 
 ***
 
@@ -25,7 +22,7 @@ Unique button identifier.
 
 > **buttonText**: `string`
 
-Button label text. Maximum 25 characters.
+Defined in: [types/messages.ts:481](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L481)
 
 ***
 
@@ -33,7 +30,7 @@ Button label text. Maximum 25 characters.
 
 > `optional` **copyCode**: `string`
 
-Value to copy when button is pressed. Used when `type` is `"copy"`.
+Defined in: [types/messages.ts:482](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L482)
 
 ***
 
@@ -41,7 +38,7 @@ Value to copy when button is pressed. Used when `type` is `"copy"`.
 
 > `optional` **phoneNumber**: `string`
 
-Phone number to call. Used when `type` is `"call"`.
+Defined in: [types/messages.ts:483](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L483)
 
 ***
 
@@ -49,7 +46,7 @@ Phone number to call. Used when `type` is `"call"`.
 
 > **type**: [`InteractiveButtonType`](../type-aliases/InteractiveButtonType.md)
 
-Button action type: `"copy"`, `"call"`, or `"url"`.
+Defined in: [types/messages.ts:479](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L479)
 
 ***
 
@@ -57,4 +54,4 @@ Button action type: `"copy"`, `"call"`, or `"url"`.
 
 > `optional` **url**: `string`
 
-URL to open. Used when `type` is `"url"`.
+Defined in: [types/messages.ts:484](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L484)

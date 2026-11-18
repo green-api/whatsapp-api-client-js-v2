@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: SendFileByUploadResponse
 
-Defined in: [types/messages.ts:83](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L83)
+Defined in: [types/messages.ts:98](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L98)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/messages.ts:83](https://github.com/green-api/whatsapp-api-cli
 
 > **idMessage**: `string`
 
-Defined in: [types/messages.ts:84](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L84)
+Defined in: [types/messages.ts:99](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L99)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/messages.ts:84](https://github.com/green-api/whatsapp-api-cli
 
 > **urlFile**: `string`
 
-Defined in: [types/messages.ts:85](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L85)
+Defined in: [types/messages.ts:100](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L100)

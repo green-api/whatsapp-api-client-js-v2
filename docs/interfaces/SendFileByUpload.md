@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: SendFileByUpload
 
-Defined in: [types/messages.ts:24](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L24)
+Defined in: [types/messages.ts:37](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L37)
 
 Common properties shared by all message types.
 
@@ -20,7 +20,7 @@ Common properties shared by all message types.
 
 > `optional` **caption**: `string`
 
-Defined in: [types/messages.ts:29](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L29)
+Defined in: [types/messages.ts:42](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L42)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [types/messages.ts:29](https://github.com/green-api/whatsapp-api-cli
 
 > **chatId**: `string`
 
-Defined in: [types/messages.ts:7](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L7)
+Defined in: [types/messages.ts:7](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L7)
 
 #### Inherited from
 
@@ -40,7 +40,7 @@ Defined in: [types/messages.ts:7](https://github.com/green-api/whatsapp-api-clie
 
 > **file**: `object`
 
-Defined in: [types/messages.ts:25](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L25)
+Defined in: [types/messages.ts:38](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L38)
 
 #### data
 
@@ -56,8 +56,24 @@ Defined in: [types/messages.ts:25](https://github.com/green-api/whatsapp-api-cli
 
 > `optional` **quotedMessageId**: `string`
 
-Defined in: [types/messages.ts:8](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L8)
+Defined in: [types/messages.ts:8](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L8)
 
 #### Inherited from
 
 [`BaseMessage`](BaseMessage.md).[`quotedMessageId`](BaseMessage.md#quotedmessageid)
+
+***
+
+### typingTime?
+
+> `optional` **typingTime**: `number`
+
+Defined in: [types/messages.ts:43](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L43)
+
+***
+
+### typingType?
+
+> `optional` **typingType**: `"recording"`
+
+Defined in: [types/messages.ts:44](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L44)

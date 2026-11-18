@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: ReceiveNotificationResponse
 
-Defined in: [types/messages.ts:61](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L61)
+Defined in: [types/messages.ts:76](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L76)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/messages.ts:61](https://github.com/green-api/whatsapp-api-cli
 
 > **body**: [`GreenApiWebhook`](../type-aliases/GreenApiWebhook.md)
 
-Defined in: [types/messages.ts:63](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L63)
+Defined in: [types/messages.ts:78](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L78)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/messages.ts:63](https://github.com/green-api/whatsapp-api-cli
 
 > **receiptId**: `number`
 
-Defined in: [types/messages.ts:62](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L62)
+Defined in: [types/messages.ts:77](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L77)

@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,10 +6,7 @@
 
 # Interface: SendInteractiveButtonsReply
 
-Defined in: [types/messages.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/messages.ts)
-
-Parameters for sending a message with reply buttons that return text to the chat when clicked.
-Supports up to 3 buttons per message. Each button can only be clicked once. Beta feature.
+Defined in: [types/messages.ts:500](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L500)
 
 ## Properties
 
@@ -17,7 +14,7 @@ Supports up to 3 buttons per message. Each button can only be clicked once. Beta
 
 > **body**: `string`
 
-Main message text.
+Defined in: [types/messages.ts:503](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L503)
 
 ***
 
@@ -25,7 +22,7 @@ Main message text.
 
 > **buttons**: [`InteractiveButtonReply`](InteractiveButtonReply.md)[]
 
-Array of reply buttons. Maximum 3 buttons.
+Defined in: [types/messages.ts:505](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L505)
 
 ***
 
@@ -33,7 +30,7 @@ Array of reply buttons. Maximum 3 buttons.
 
 > **chatId**: `string`
 
-Chat identifier.
+Defined in: [types/messages.ts:501](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L501)
 
 ***
 
@@ -41,7 +38,7 @@ Chat identifier.
 
 > `optional` **footer**: `string`
 
-Footer text displayed below the message body.
+Defined in: [types/messages.ts:504](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L504)
 
 ***
 
@@ -49,4 +46,4 @@ Footer text displayed below the message body.
 
 > `optional` **header**: `string`
 
-Header text displayed above the message body.
+Defined in: [types/messages.ts:502](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L502)

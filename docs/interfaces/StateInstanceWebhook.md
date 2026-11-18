@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: StateInstanceWebhook
 
-Defined in: [types/webhooks.ts:36](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L36)
+Defined in: [types/webhooks.ts:38](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L38)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/webhooks.ts:36](https://github.com/green-api/whatsapp-api-cli
 
 > **instanceData**: `object`
 
-Defined in: [types/webhooks.ts:38](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L38)
+Defined in: [types/webhooks.ts:40](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L40)
 
 #### idInstance
 
@@ -34,7 +34,7 @@ Defined in: [types/webhooks.ts:38](https://github.com/green-api/whatsapp-api-cli
 
 > **stateInstance**: [`InstanceState`](../type-aliases/InstanceState.md)
 
-Defined in: [types/webhooks.ts:44](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L44)
+Defined in: [types/webhooks.ts:46](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L46)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [types/webhooks.ts:44](https://github.com/green-api/whatsapp-api-cli
 
 > **timestamp**: `number`
 
-Defined in: [types/webhooks.ts:43](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L43)
+Defined in: [types/webhooks.ts:45](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L45)
 
 ***
 
@@ -50,4 +50,4 @@ Defined in: [types/webhooks.ts:43](https://github.com/green-api/whatsapp-api-cli
 
 > **typeWebhook**: `"stateInstanceChanged"`
 
-Defined in: [types/webhooks.ts:37](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/webhooks.ts#L37)
+Defined in: [types/webhooks.ts:39](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/webhooks.ts#L39)

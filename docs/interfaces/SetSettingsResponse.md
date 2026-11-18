@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: SetSettingsResponse
 
-Defined in: [types/instance.ts:62](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L62)
+Defined in: [types/instance.ts:69](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L69)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [types/instance.ts:62](https://github.com/green-api/whatsapp-api-cli
 
 > **saveSettings**: `boolean`
 
-Defined in: [types/instance.ts:63](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/instance.ts#L63)
+Defined in: [types/instance.ts:70](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/instance.ts#L70)

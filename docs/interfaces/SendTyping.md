@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: SendTyping
 
-Defined in: [types/messages.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/messages.ts)
-
-Parameters for sending a typing or audio recording indicator to a chat.
+Defined in: [types/messages.ts:508](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L508)
 
 ## Properties
 
@@ -16,7 +14,7 @@ Parameters for sending a typing or audio recording indicator to a chat.
 
 > **chatId**: `string`
 
-Chat identifier.
+Defined in: [types/messages.ts:509](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L509)
 
 ***
 
@@ -24,7 +22,7 @@ Chat identifier.
 
 > `optional` **typingTime**: `number`
 
-Duration the indicator is displayed, in milliseconds. Valid range: 1000–20000.
+Defined in: [types/messages.ts:510](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L510)
 
 ***
 
@@ -32,4 +30,4 @@ Duration the indicator is displayed, in milliseconds. Valid range: 1000–20000.
 
 > `optional` **typingType**: `"recording"`
 
-Set to `"recording"` to show an audio recording indicator instead of the default typing indicator.
+Defined in: [types/messages.ts:511](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L511)

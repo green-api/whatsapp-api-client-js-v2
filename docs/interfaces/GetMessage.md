@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: GetMessage
 
-Defined in: [types/messages.ts:179](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L179)
+Defined in: [types/messages.ts:204](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L204)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/messages.ts:179](https://github.com/green-api/whatsapp-api-cl
 
 > **chatId**: `string`
 
-Defined in: [types/messages.ts:180](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L180)
+Defined in: [types/messages.ts:205](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L205)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/messages.ts:180](https://github.com/green-api/whatsapp-api-cl
 
 > **idMessage**: `string`
 
-Defined in: [types/messages.ts:181](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/messages.ts#L181)
+Defined in: [types/messages.ts:206](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L206)

@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Class: GreenApiClient
 
-Defined in: [client/green-api-client.ts:103](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L103)
+Defined in: [client/green-api-client.ts:125](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L125)
 
 Client for direct interaction with GREEN-API's WhatsApp gateway.
 Provides methods for sending messages, managing instances, and handling files.
@@ -36,7 +36,7 @@ await client.sendMessage({
 
 > **new GreenApiClient**(`instance`): `GreenApiClient`
 
-Defined in: [client/green-api-client.ts:109](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L109)
+Defined in: [client/green-api-client.ts:131](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L131)
 
 Creates a GREEN-API client instance.
 
@@ -62,7 +62,7 @@ Configuration containing idInstance and apiTokenInstance
 
 > **addContact**(`params`): `Promise`\<[`AddContactResponse`](../interfaces/AddContactResponse.md)\>
 
-Defined in: [client/green-api-client.ts:1095](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L1095)
+Defined in: [client/green-api-client.ts:1524](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1524)
 
 Adds contact.
 
@@ -96,7 +96,7 @@ await client.addContact({
 
 > **addGroupParticipant**(`params`): `Promise`\<[`AddGroupParticipantResponse`](../interfaces/AddGroupParticipantResponse.md)\>
 
-Defined in: [client/green-api-client.ts:690](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L690)
+Defined in: [client/green-api-client.ts:922](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L922)
 
 Adds a participant to a group chat.
 Note: Only group administrators can add members.
@@ -122,7 +122,7 @@ Promise resolving to addition status
 
 > **archiveChat**(`params`): `Promise`\<`void`\>
 
-Defined in: [client/green-api-client.ts:568](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L568)
+Defined in: [client/green-api-client.ts:750](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L750)
 
 Archives a chat. Chat must have at least one incoming message.
 Note: "Receive webhooks on incoming messages and files" setting must be enabled.
@@ -143,11 +143,149 @@ Promise resolving to void on success
 
 ***
 
+### callsAccept()
+
+> **callsAccept**(): `Promise`\<[`CallIdResponse`](../interfaces/CallIdResponse.md)\>
+
+Defined in: [client/green-api-client.ts:1128](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1128)
+
+Accepts the incoming call.
+
+#### Returns
+
+`Promise`\<[`CallIdResponse`](../interfaces/CallIdResponse.md)\>
+
+Promise resolving to the call ID
+
+#### Throws
+
+NO_INCOMING_CALL and others
+
+***
+
+### callsDial()
+
+> **callsDial**(`params`): `Promise`\<[`CallIdResponse`](../interfaces/CallIdResponse.md)\>
+
+Defined in: [client/green-api-client.ts:1118](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1118)
+
+Starts an outgoing voice call. Without the call audio (connectCalls) the call connects but nobody hears anything.
+Outgoing calls work only to chats that wrote or called the instance in the last 72 hours.
+
+#### Parameters
+
+##### params
+
+[`CallsDial`](../interfaces/CallsDial.md)
+
+Chat ID of the person to call, 79001234567@c.us or 123456789012345@lid
+
+#### Returns
+
+`Promise`\<[`CallIdResponse`](../interfaces/CallIdResponse.md)\>
+
+Promise resolving to the call ID, the same as idMessage in the call webhooks
+
+#### Throws
+
+INVALID_CHAT_ID, NO_RECENT_CONTACT, ALREADY_IN_CALL, NOT_IN_TARIFF, INVALID_CREDENTIALS and others
+
+#### Example
+
+```typescript
+const {callId} = await client.callsDial({chatId: "79001234567@c.us"});
+```
+
+***
+
+### callsGetIceServers()
+
+> **callsGetIceServers**(): `Promise`\<[`IceServer`](../interfaces/IceServer.md)[]\>
+
+Defined in: [client/green-api-client.ts:1173](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1173)
+
+Returns the ICE servers for the call audio. connectCalls uses it itself.
+
+#### Returns
+
+`Promise`\<[`IceServer`](../interfaces/IceServer.md)[]\>
+
+Promise resolving to the ICE servers
+
+***
+
+### callsHangUp()
+
+> **callsHangUp**(): `Promise`\<[`CallIdResponse`](../interfaces/CallIdResponse.md)\>
+
+Defined in: [client/green-api-client.ts:1148](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1148)
+
+Ends the current call.
+
+#### Returns
+
+`Promise`\<[`CallIdResponse`](../interfaces/CallIdResponse.md)\>
+
+Promise resolving to the call ID
+
+#### Throws
+
+NO_ACTIVE_CALL and others
+
+***
+
+### callsReject()
+
+> **callsReject**(): `Promise`\<[`CallIdResponse`](../interfaces/CallIdResponse.md)\>
+
+Defined in: [client/green-api-client.ts:1138](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1138)
+
+Rejects the incoming call.
+
+#### Returns
+
+`Promise`\<[`CallIdResponse`](../interfaces/CallIdResponse.md)\>
+
+Promise resolving to the call ID
+
+#### Throws
+
+NO_INCOMING_CALL and others
+
+***
+
+### callsState()
+
+> **callsState**(): `Promise`\<[`CallState`](../interfaces/CallState.md)\>
+
+Defined in: [client/green-api-client.ts:1164](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1164)
+
+Returns the current call state of the instance.
+After a call ends the state is a bare idle, the end reason comes only on the calls connection.
+
+#### Returns
+
+`Promise`\<[`CallState`](../interfaces/CallState.md)\>
+
+Promise resolving to the call state
+
+#### Throws
+
+INVALID_CREDENTIALS and others
+
+#### Example
+
+```typescript
+const {state, info} = await client.callsState();
+```
+
+***
+
 ### checkWhatsapp()
 
 > **checkWhatsapp**(`params`): `Promise`\<[`CheckWhatsappResponse`](../interfaces/CheckWhatsappResponse.md)\>
 
-Defined in: [client/green-api-client.ts:524](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L524)
+Defined in: [client/green-api-client.ts:706](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L706)
 
 Checks WhatsApp account availability on a phone number.
 
@@ -187,7 +325,7 @@ if (result.existsWhatsapp) {
 
 > **clearMessagesQueue**(): `Promise`\<[`ClearMessagesQueue`](../interfaces/ClearMessagesQueue.md)\>
 
-Defined in: [client/green-api-client.ts:472](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L472)
+Defined in: [client/green-api-client.ts:618](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L618)
 
 Clears the queue of messages waiting to be sent.
 Important when switching phone numbers to prevent sending queued messages with the new number.
@@ -213,26 +351,64 @@ if (result.isCleared) {
 
 > **clearWebhooksQueue**(): `Promise`\<[`ClearWebhooksQueueResponse`](../interfaces/ClearWebhooksQueueResponse.md)\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:654](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L654)
 
 Clears the incoming webhook notification queue.
-The method is rate-limited to once every 60 seconds; the response indicates the time remaining if called too soon.
+Can only be called once per minute. Recommended after account blocking or phone number switching.
 
 #### Returns
 
 `Promise`\<[`ClearWebhooksQueueResponse`](../interfaces/ClearWebhooksQueueResponse.md)\>
 
-Promise resolving to queue clearing status
+Promise resolving to clear result with status and optional rate-limit info
 
 #### Example
 
 ```typescript
 const result = await client.clearWebhooksQueue();
 if (result.isCleared) {
-  console.log("Webhook queue cleared");
+  console.log('Webhook queue cleared');
 } else {
-  console.log(`Try again in ${result.leftTime} seconds`);
+  console.log(`Rate limited, retry in ${result.leftTime}s`);
 }
+```
+
+***
+
+### connectCalls()
+
+> **connectCalls**(`options`): [`CallsConnection`](CallsConnection.md)
+
+Defined in: [client/green-api-client.ts:1211](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1211)
+
+Creates the live calls connection: call state, incoming calls, end reasons and the call audio.
+Call open() on it before use. Audio needs the optional dependencies: npm install werift@^0.25.2 ws
+Live PCM audio (sendPcm, remote-pcm) also needs: npm install opusscript
+
+#### Parameters
+
+##### options
+
+[`CallsConnectionOptions`](../interfaces/CallsConnectionOptions.md) = `{}`
+
+Sample rate of the live PCM audio, 24000 by default
+
+#### Returns
+
+[`CallsConnection`](CallsConnection.md)
+
+The calls connection, not yet open
+
+#### Throws
+
+INVALID_AUDIO if pcmSampleRate is not supported
+
+#### Example
+
+```typescript
+const calls = client.connectCalls();
+calls.on("incoming-call", (info) => console.log("Call from", info.wid));
+await calls.open();
 ```
 
 ***
@@ -241,7 +417,7 @@ if (result.isCleared) {
 
 > **createGroup**(`params`): `Promise`\<[`CreateGroupResponse`](../interfaces/CreateGroupResponse.md)\>
 
-Defined in: [client/green-api-client.ts:657](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L657)
+Defined in: [client/green-api-client.ts:889](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L889)
 
 Creates a group chat.
 Note: Limited to creating 1 group per 5 minutes to simulate human behavior.
@@ -266,7 +442,7 @@ Promise resolving to group creation result
 
 > **deleteContact**(`params`): `Promise`\<[`DeleteContactResponse`](../interfaces/DeleteContactResponse.md)\>
 
-Defined in: [client/green-api-client.ts:1141](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L1141)
+Defined in: [client/green-api-client.ts:1570](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1570)
 
 Deletes contact.
 
@@ -298,7 +474,7 @@ await client.deleteContact({
 
 > **deleteMessage**(`params`): `Promise`\<`void`\>
 
-Defined in: [client/green-api-client.ts:642](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L642)
+Defined in: [client/green-api-client.ts:824](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L824)
 
 Deletes a message from a chat.
 
@@ -339,7 +515,7 @@ await client.deleteMessage({
 
 > **deleteNotification**(`receiptId`): `Promise`\<[`DeleteNotificationResponse`](../interfaces/DeleteNotificationResponse.md)\>
 
-Defined in: [client/green-api-client.ts:852](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L852)
+Defined in: [client/green-api-client.ts:1281](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1281)
 
 Deletes an incoming notification from the notification queue.
 After calling this method, the notification is considered processed and permanently deleted.
@@ -371,7 +547,7 @@ console.log(result.result); // true if successfully deleted
 
 > **deleteStatus**(`params`): `Promise`\<`void`\>
 
-Defined in: [client/green-api-client.ts:986](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L986)
+Defined in: [client/green-api-client.ts:1415](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1415)
 
 Deletes a previously sent status (Beta feature).
 
@@ -403,7 +579,7 @@ await client.deleteStatus({
 
 > **downloadFile**(`params`): `Promise`\<[`DownloadFileResponse`](../interfaces/DownloadFileResponse.md)\>
 
-Defined in: [client/green-api-client.ts:874](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L874)
+Defined in: [client/green-api-client.ts:1303](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1303)
 
 Downloads a file from a message.
 Files are stored for a limited time by WhatsApp.
@@ -438,7 +614,7 @@ console.log(file.downloadUrl);
 
 > **editContact**(`params`): `Promise`\<[`EditContactResponse`](../interfaces/EditContactResponse.md)\>
 
-Defined in: [client/green-api-client.ts:1119](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L1119)
+Defined in: [client/green-api-client.ts:1548](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1548)
 
 Edits contact.
 
@@ -472,7 +648,7 @@ await client.editContact({
 
 > **editMessage**(`params`): `Promise`\<[`EditMessageResponse`](../interfaces/EditMessageResponse.md)\>
 
-Defined in: [client/green-api-client.ts:613](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L613)
+Defined in: [client/green-api-client.ts:795](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L795)
 
 Edits a text message in a personal or group chat.
 WhatsApp imposes the following restrictions:
@@ -511,7 +687,7 @@ console.log('Edited message ID:', result.idMessage);
 
 > **forwardMessages**(`request`): `Promise`\<[`ForwardMessagesResponse`](../interfaces/ForwardMessagesResponse.md)\>
 
-Defined in: [client/green-api-client.ts:256](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L256)
+Defined in: [client/green-api-client.ts:285](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L285)
 
 Forwards messages from one chat to another.
 
@@ -545,7 +721,7 @@ await client.forwardMessages({
 
 > **getAuthorizationCode**(`phoneNumber`): `Promise`\<[`GetAuthorizationCode`](../interfaces/GetAuthorizationCode.md)\>
 
-Defined in: [client/green-api-client.ts:432](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L432)
+Defined in: [client/green-api-client.ts:542](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L542)
 
 Gets authorization code for a phone number.
 
@@ -573,7 +749,7 @@ If phone number is invalid
 
 > **getAvatar**(`params`): `Promise`\<[`GetAvatarResponse`](../interfaces/GetAvatarResponse.md)\>
 
-Defined in: [client/green-api-client.ts:535](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L535)
+Defined in: [client/green-api-client.ts:717](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L717)
 
 Gets a user or group chat avatar.
 
@@ -593,11 +769,86 @@ Promise resolving to avatar information
 
 ***
 
+### getCallRecording()
+
+> **getCallRecording**(`params`): `Promise`\<[`CallRecording`](../interfaces/CallRecording.md)\>
+
+Defined in: [client/green-api-client.ts:1191](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1191)
+
+Returns the recording of a call. downloadUrl works for 1 hour.
+
+#### Parameters
+
+##### params
+
+[`GetCallRecording`](../interfaces/GetCallRecording.md)
+
+Call ID from callsDial, the call webhooks or the calls journals
+
+#### Returns
+
+`Promise`\<[`CallRecording`](../interfaces/CallRecording.md)\>
+
+Promise resolving to the recording status and download URL
+
+#### Example
+
+```typescript
+const recording = await client.getCallRecording({idMessage: callId});
+if (recording.status === "ready") {
+  console.log(recording.downloadUrl);
+}
+```
+
+***
+
+### getCallsRtcUrl()
+
+> **getCallsRtcUrl**(): `string`
+
+Defined in: [client/green-api-client.ts:1220](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1220)
+
+Returns the WebSocket URL of the calls connection. The URL contains the instance token.
+
+#### Returns
+
+`string`
+
+The callsRtc URL
+
+***
+
+### getChatHistory()
+
+> **getChatHistory**(`params`): `Promise`\<[`JournalResponse`](../type-aliases/JournalResponse.md)[]\>
+
+Defined in: [client/green-api-client.ts:1027](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1027)
+
+Gets chat message history.
+Note: Requires "Receive webhooks" setting to be enabled.
+Messages can take up to 2 minutes to appear in history.
+
+#### Parameters
+
+##### params
+
+[`GetChatHistory`](../interfaces/GetChatHistory.md)
+
+Parameters containing chat ID and optional message count
+
+#### Returns
+
+`Promise`\<[`JournalResponse`](../type-aliases/JournalResponse.md)[]\>
+
+Promise resolving to array of messages
+
+***
+
 ### getChats()
 
 > **getChats**(`count`?): `Promise`\<[`Chat`](../interfaces/Chat.md)[]\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:874](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L874)
 
 Gets a list of chats sorted by last activity time.
 The list is updated no more than once per minute.
@@ -627,61 +878,11 @@ chats.forEach(chat => {
 
 ***
 
-### getWebhooksCount()
-
-> **getWebhooksCount**(): `Promise`\<[`GetWebhooksCountResponse`](../interfaces/GetWebhooksCountResponse.md)\>
-
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
-
-Returns the number of notifications currently stored in the incoming webhook queue.
-The count is updated once every 10 seconds.
-
-#### Returns
-
-`Promise`\<[`GetWebhooksCountResponse`](../interfaces/GetWebhooksCountResponse.md)\>
-
-Promise resolving to webhook count response
-
-#### Example
-
-```typescript
-const result = await client.getWebhooksCount();
-console.log(`Pending notifications: ${result.count}`);
-```
-
-***
-
-### getChatHistory()
-
-> **getChatHistory**(`params`): `Promise`\<[`JournalResponse`](../type-aliases/JournalResponse.md)[]\>
-
-Defined in: [client/green-api-client.ts:773](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L773)
-
-Gets chat message history.
-Note: Requires "Receive webhooks" setting to be enabled.
-Messages can take up to 2 minutes to appear in history.
-
-#### Parameters
-
-##### params
-
-[`GetChatHistory`](../interfaces/GetChatHistory.md)
-
-Parameters containing chat ID and optional message count
-
-#### Returns
-
-`Promise`\<[`JournalResponse`](../type-aliases/JournalResponse.md)[]\>
-
-Promise resolving to array of messages
-
-***
-
 ### getContactInfo()
 
 > **getContactInfo**(`params`): `Promise`\<[`ContactInfo`](../interfaces/ContactInfo.md)\>
 
-Defined in: [client/green-api-client.ts:557](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L557)
+Defined in: [client/green-api-client.ts:739](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L739)
 
 Gets detailed information about a contact.
 Note: This method does not support group chats, use getGroupData for groups.
@@ -706,7 +907,7 @@ Promise resolving to contact information
 
 > **getContacts**(): `Promise`\<[`Contact`](../interfaces/Contact.md)[]\>
 
-Defined in: [client/green-api-client.ts:546](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L546)
+Defined in: [client/green-api-client.ts:728](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L728)
 
 Gets a list of the current account contacts.
 Note: Contact information updates can take up to 5 minutes.
@@ -724,7 +925,7 @@ Promise resolving to array of contacts
 
 > **getGroupData**(`params`): `Promise`\<[`GroupData`](../interfaces/GroupData.md)\>
 
-Defined in: [client/green-api-client.ts:678](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L678)
+Defined in: [client/green-api-client.ts:910](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L910)
 
 Gets group chat data.
 Note: groupInviteLink will be empty if user is not an admin or owner.
@@ -749,7 +950,7 @@ Promise resolving to group data
 
 > **getIncomingStatuses**(`params`?): `Promise`\<[`IncomingStatusMessage`](../type-aliases/IncomingStatusMessage.md)[]\>
 
-Defined in: [client/green-api-client.ts:1040](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L1040)
+Defined in: [client/green-api-client.ts:1469](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1469)
 
 Gets incoming status messages from contacts (Beta feature).
 Returns statuses that were received by the current WhatsApp account.
@@ -794,7 +995,7 @@ statuses.forEach(status => {
 
 > **getMessage**(`params`): `Promise`\<[`JournalResponse`](../type-aliases/JournalResponse.md)\>
 
-Defined in: [client/green-api-client.ts:761](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L761)
+Defined in: [client/green-api-client.ts:1015](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1015)
 
 Gets details of a specific message.
 Note: To receive incoming webhooks, requires "Receive webhooks on incoming messages and files" setting to be enabled.
@@ -821,7 +1022,7 @@ Promise resolving to message details
 
 > **getOutgoingStatuses**(`params`?): `Promise`\<[`OutgoingStatusMessage`](../type-aliases/OutgoingStatusMessage.md)[]\>
 
-Defined in: [client/green-api-client.ts:1071](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L1071)
+Defined in: [client/green-api-client.ts:1500](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1500)
 
 Gets outgoing status messages sent by the current account (Beta feature).
 By default, returns outgoing statuses for the last 24 hours (1440 minutes).
@@ -866,7 +1067,7 @@ statuses.forEach(status => {
 
 > **getQR**(): `Promise`\<[`QR`](../interfaces/QR.md)\>
 
-Defined in: [client/green-api-client.ts:381](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L381)
+Defined in: [client/green-api-client.ts:491](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L491)
 
 Gets the QR code for GREEN-API instance authentication.
 
@@ -882,7 +1083,7 @@ Promise resolving to QR code data
 
 > **getSettings**(): `Promise`\<[`Settings`](../interfaces/Settings.md)\>
 
-Defined in: [client/green-api-client.ts:390](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L390)
+Defined in: [client/green-api-client.ts:500](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L500)
 
 Gets current instance settings.
 
@@ -898,7 +1099,7 @@ Promise resolving to settings object
 
 > **getStateInstance**(): `Promise`\<[`StateInstance`](../interfaces/StateInstance.md)\>
 
-Defined in: [client/green-api-client.ts:372](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L372)
+Defined in: [client/green-api-client.ts:482](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L482)
 
 Gets the current state of the GREEN-API instance.
 
@@ -914,7 +1115,7 @@ Promise resolving to instance state
 
 > **getStateInstanceHistory**(`count`?): `Promise`\<[`StateInstanceHistoryItem`](../interfaces/StateInstanceHistoryItem.md)[]\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:579](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L579)
 
 Gets the state change history of the current instance in chronological order.
 
@@ -947,7 +1148,7 @@ history.forEach(item => {
 
 > **getStatusStatistic**(`params`): `Promise`\<[`GetStatusStatisticResponse`](../type-aliases/GetStatusStatisticResponse.md)\>
 
-Defined in: [client/green-api-client.ts:1010](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L1010)
+Defined in: [client/green-api-client.ts:1439](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1439)
 
 Gets statistics for a previously sent status (Beta feature).
 Returns an array of recipients with sent/delivered/read statuses.
@@ -986,7 +1187,7 @@ statistics.forEach(stat => {
 
 > **getWaSettings**(): `Promise`\<[`WaSettings`](../interfaces/WaSettings.md)\>
 
-Defined in: [client/green-api-client.ts:409](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L409)
+Defined in: [client/green-api-client.ts:519](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L519)
 
 Gets WhatsApp-specific settings.
 
@@ -998,30 +1199,27 @@ Promise resolving to WhatsApp settings
 
 ***
 
-### lastIncomingMessages()
+### getWebhooksCount()
 
-> **lastIncomingMessages**(`minutes`?): `Promise`\<[`IncomingJournalResponse`](../type-aliases/IncomingJournalResponse.md)[]\>
+> **getWebhooksCount**(): `Promise`\<[`GetWebhooksCountResponse`](../interfaces/GetWebhooksCountResponse.md)\>
 
-Defined in: [client/green-api-client.ts:786](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L786)
+Defined in: [client/green-api-client.ts:634](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L634)
 
-Gets last incoming messages for the specified time period.
-Default is 24 hours (1440 minutes).
-Note: Requires "Receive webhooks" setting to be enabled.
-Messages can take up to 2 minutes to appear in history.
-
-#### Parameters
-
-##### minutes?
-
-`number`
-
-Optional time period in minutes
+Gets the number of notifications currently in the incoming webhook queue.
+The count is updated once every 10 seconds. Each notification is stored for 24 hours.
 
 #### Returns
 
-`Promise`\<[`IncomingJournalResponse`](../type-aliases/IncomingJournalResponse.md)[]\>
+`Promise`\<[`GetWebhooksCountResponse`](../interfaces/GetWebhooksCountResponse.md)\>
 
-Promise resolving to array of incoming messages
+Promise resolving to webhook count response
+
+#### Example
+
+```typescript
+const { count } = await client.getWebhooksCount();
+console.log('Pending notifications:', count);
+```
 
 ***
 
@@ -1029,7 +1227,7 @@ Promise resolving to array of incoming messages
 
 > **lastIncomingCalls**(`minutes`?): `Promise`\<[`IncomingCall`](../interfaces/IncomingCall.md)[]\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:1076](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1076)
 
 Gets the incoming calls log for the specified time period.
 Default is 24 hours (1440 minutes). Returns up to 10,000 calls.
@@ -1053,6 +1251,7 @@ Promise resolving to array of incoming calls
 #### Example
 
 ```typescript
+// Get all incoming calls for the last hour
 const calls = await client.lastIncomingCalls(60);
 calls.forEach(call => {
   const status = call.status === "pickUp" ? "answered" : call.status;
@@ -1062,13 +1261,13 @@ calls.forEach(call => {
 
 ***
 
-### lastOutgoingMessages()
+### lastIncomingMessages()
 
-> **lastOutgoingMessages**(`minutes`?): `Promise`\<[`OutgoingJournalResponse`](../type-aliases/OutgoingJournalResponse.md)[]\>
+> **lastIncomingMessages**(`minutes`?): `Promise`\<[`IncomingJournalResponse`](../type-aliases/IncomingJournalResponse.md)[]\>
 
-Defined in: [client/green-api-client.ts:799](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L799)
+Defined in: [client/green-api-client.ts:1040](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1040)
 
-Gets last outgoing messages for the specified time period.
+Gets last incoming messages for the specified time period.
 Default is 24 hours (1440 minutes).
 Note: Requires "Receive webhooks" setting to be enabled.
 Messages can take up to 2 minutes to appear in history.
@@ -1083,9 +1282,9 @@ Optional time period in minutes
 
 #### Returns
 
-`Promise`\<[`OutgoingJournalResponse`](../type-aliases/OutgoingJournalResponse.md)[]\>
+`Promise`\<[`IncomingJournalResponse`](../type-aliases/IncomingJournalResponse.md)[]\>
 
-Promise resolving to array of outgoing messages
+Promise resolving to array of incoming messages
 
 ***
 
@@ -1093,7 +1292,7 @@ Promise resolving to array of outgoing messages
 
 > **lastOutgoingCalls**(`minutes`?): `Promise`\<[`OutgoingCall`](../interfaces/OutgoingCall.md)[]\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:1097](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1097)
 
 Gets the outgoing calls log for the specified time period.
 Default is 24 hours (1440 minutes). Returns up to 10,000 calls.
@@ -1116,6 +1315,7 @@ Promise resolving to array of outgoing calls
 #### Example
 
 ```typescript
+// Get all outgoing calls for the last 24 hours
 const calls = await client.lastOutgoingCalls();
 calls.forEach(call => {
   console.log(`Call to ${call.chatId}: ${call.status}, duration=${call.duration}s`);
@@ -1124,11 +1324,38 @@ calls.forEach(call => {
 
 ***
 
+### lastOutgoingMessages()
+
+> **lastOutgoingMessages**(`minutes`?): `Promise`\<[`OutgoingJournalResponse`](../type-aliases/OutgoingJournalResponse.md)[]\>
+
+Defined in: [client/green-api-client.ts:1053](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1053)
+
+Gets last outgoing messages for the specified time period.
+Default is 24 hours (1440 minutes).
+Note: Requires "Receive webhooks" setting to be enabled.
+Messages can take up to 2 minutes to appear in history.
+
+#### Parameters
+
+##### minutes?
+
+`number`
+
+Optional time period in minutes
+
+#### Returns
+
+`Promise`\<[`OutgoingJournalResponse`](../type-aliases/OutgoingJournalResponse.md)[]\>
+
+Promise resolving to array of outgoing messages
+
+***
+
 ### leaveGroup()
 
 > **leaveGroup**(`params`): `Promise`\<[`LeaveGroupResponse`](../interfaces/LeaveGroupResponse.md)\>
 
-Defined in: [client/green-api-client.ts:744](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L744)
+Defined in: [client/green-api-client.ts:976](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L976)
 
 Makes the current account leave a group chat.
 
@@ -1152,7 +1379,7 @@ Promise resolving to leave status
 
 > **logout**(): `Promise`\<[`Logout`](../interfaces/Logout.md)\>
 
-Defined in: [client/green-api-client.ts:363](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L363)
+Defined in: [client/green-api-client.ts:473](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L473)
 
 Logs out from the GREEN-API instance.
 
@@ -1168,7 +1395,7 @@ Promise resolving to logout status
 
 > **readChat**(`params`): `Promise`\<[`ReadChatResponse`](../interfaces/ReadChatResponse.md)\>
 
-Defined in: [client/green-api-client.ts:502](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L502)
+Defined in: [client/green-api-client.ts:684](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L684)
 
 Marks messages in a chat as read.
 For this to work, "Receive webhooks on incoming messages and files" setting must be enabled.
@@ -1209,7 +1436,7 @@ const result = await client.readChat({
 
 > **reboot**(): `Promise`\<[`Reboot`](../interfaces/Reboot.md)\>
 
-Defined in: [client/green-api-client.ts:354](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L354)
+Defined in: [client/green-api-client.ts:464](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L464)
 
 Reboots the GREEN-API instance.
 
@@ -1225,7 +1452,7 @@ Promise resolving to reboot status
 
 > **receiveNotification**(`timeout`?): `Promise`\<`null` \| [`ReceiveNotificationResponse`](../interfaces/ReceiveNotificationResponse.md)\>
 
-Defined in: [client/green-api-client.ts:826](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L826)
+Defined in: [client/green-api-client.ts:1255](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1255)
 
 Receives one incoming notification from the notification queue.
 The method waits for a notification for the specified timeout period (default 5 seconds).
@@ -1263,7 +1490,7 @@ if (notification) {
 
 > **removeAdmin**(`params`): `Promise`\<[`RemoveAdminResponse`](../interfaces/RemoveAdminResponse.md)\>
 
-Defined in: [client/green-api-client.ts:720](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L720)
+Defined in: [client/green-api-client.ts:952](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L952)
 
 Removes administrator rights from a group chat participant.
 
@@ -1287,7 +1514,7 @@ Promise resolving to admin removal status
 
 > **removeGroupParticipant**(`params`): `Promise`\<[`RemoveGroupParticipantResponse`](../interfaces/RemoveGroupParticipantResponse.md)\>
 
-Defined in: [client/green-api-client.ts:700](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L700)
+Defined in: [client/green-api-client.ts:932](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L932)
 
 Removes a participant from a group chat.
 
@@ -1311,7 +1538,7 @@ Promise resolving to removal status
 
 > **sendContact**(`message`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
 
-Defined in: [client/green-api-client.ts:310](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L310)
+Defined in: [client/green-api-client.ts:339](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L339)
 
 Sends a contact card to a WhatsApp chat.
 
@@ -1348,7 +1575,7 @@ await client.sendContact({
 
 > **sendFileByUpload**(`message`): `Promise`\<[`SendFileByUploadResponse`](../interfaces/SendFileByUploadResponse.md)\>
 
-Defined in: [client/green-api-client.ts:204](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L204)
+Defined in: [client/green-api-client.ts:231](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L231)
 
 Sends a file from local data to a WhatsApp chat.
 
@@ -1385,7 +1612,7 @@ await client.sendFileByUpload({
 
 > **sendFileByUrl**(`message`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
 
-Defined in: [client/green-api-client.ts:176](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L176)
+Defined in: [client/green-api-client.ts:201](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L201)
 
 Sends a file from a URL to a WhatsApp chat.
 
@@ -1422,7 +1649,7 @@ await client.sendFileByUrl({
 
 > **sendInteractiveButtons**(`params`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:369](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L369)
 
 Sends a message with interactive action buttons (copy/call/url) to a private chat (Beta feature).
 Supports up to 3 buttons per message. Button text is limited to 25 characters.
@@ -1463,7 +1690,7 @@ await client.sendInteractiveButtons({
 
 > **sendInteractiveButtonsReply**(`params`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:410](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L410)
 
 Sends a message with reply buttons that return text to the chat when clicked (Beta feature).
 Supports up to 3 buttons per message. Button text is limited to 25 characters.
@@ -1505,7 +1732,7 @@ await client.sendInteractiveButtonsReply({
 
 > **sendLocation**(`message`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
 
-Defined in: [client/green-api-client.ts:281](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L281)
+Defined in: [client/green-api-client.ts:310](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L310)
 
 Sends a location to a WhatsApp chat.
 
@@ -1541,7 +1768,7 @@ await client.sendLocation({
 
 > **sendMediaStatus**(`params`): `Promise`\<[`SendMediaStatusResponse`](../interfaces/SendMediaStatusResponse.md)\>
 
-Defined in: [client/green-api-client.ts:960](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L960)
+Defined in: [client/green-api-client.ts:1389](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1389)
 
 Sends a picture or video status update to WhatsApp (Beta feature).
 The status will be added to the queue and kept for 24 hours until the instance is authorized.
@@ -1579,7 +1806,7 @@ await client.sendMediaStatus({
 
 > **sendMessage**(`message`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
 
-Defined in: [client/green-api-client.ts:149](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L149)
+Defined in: [client/green-api-client.ts:171](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L171)
 
 Sends a text message to a WhatsApp chat.
 
@@ -1613,7 +1840,7 @@ await client.sendMessage({
 
 > **sendPoll**(`message`): `Promise`\<[`SendResponse`](../interfaces/SendResponse.md)\>
 
-Defined in: [client/green-api-client.ts:231](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L231)
+Defined in: [client/green-api-client.ts:260](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L260)
 
 Creates a poll in a WhatsApp chat.
 
@@ -1648,7 +1875,7 @@ await client.sendPoll({
 
 > **sendTextStatus**(`params`): `Promise`\<[`SendTextStatusResponse`](../interfaces/SendTextStatusResponse.md)\>
 
-Defined in: [client/green-api-client.ts:900](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L900)
+Defined in: [client/green-api-client.ts:1329](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1329)
 
 Sends a text status update to WhatsApp (Beta feature).
 The status will be added to the queue and kept for 24 hours until the instance is authorized.
@@ -1685,7 +1912,7 @@ await client.sendTextStatus({
 
 > **sendTyping**(`params`): `Promise`\<`void`\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:851](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L851)
 
 Sends a typing or audio recording indicator to a chat.
 The notification delivery time depends on the message queue interval plus the specified typingTime.
@@ -1727,7 +1954,7 @@ await client.sendTyping({
 
 > **sendVoiceStatus**(`params`): `Promise`\<[`SendVoiceStatusResponse`](../interfaces/SendVoiceStatusResponse.md)\>
 
-Defined in: [client/green-api-client.ts:932](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L932)
+Defined in: [client/green-api-client.ts:1361](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L1361)
 
 Sends a voice status update to WhatsApp (Beta feature).
 The status will be added to the queue and kept for 24 hours until the instance is authorized.
@@ -1765,7 +1992,7 @@ await client.sendVoiceStatus({
 
 > **setDisappearingChat**(`params`): `Promise`\<[`SetDisappearingChatResponse`](../interfaces/SetDisappearingChatResponse.md)\>
 
-Defined in: [client/green-api-client.ts:589](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L589)
+Defined in: [client/green-api-client.ts:771](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L771)
 
 Changes settings of disappearing messages in chats.
 Valid expiration times: 0 (off), 86400 (24h), 604800 (7d), 7776000 (90d)
@@ -1790,7 +2017,7 @@ Promise resolving to chat disappearing message settings
 
 > **setGroupAdmin**(`params`): `Promise`\<[`SetGroupAdminResponse`](../interfaces/SetGroupAdminResponse.md)\>
 
-Defined in: [client/green-api-client.ts:710](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L710)
+Defined in: [client/green-api-client.ts:942](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L942)
 
 Sets a group chat participant as an administrator.
 
@@ -1814,7 +2041,7 @@ Promise resolving to admin status change result
 
 > **setGroupPicture**(`params`): `Promise`\<[`SetGroupPictureResponse`](../interfaces/SetGroupPictureResponse.md)\>
 
-Defined in: [client/green-api-client.ts:730](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L730)
+Defined in: [client/green-api-client.ts:962](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L962)
 
 Sets a group chat picture.
 
@@ -1838,7 +2065,7 @@ Promise resolving to picture update status
 
 > **setProfilePicture**(`file`): `Promise`\<[`SetProfilePicture`](../interfaces/SetProfilePicture.md)\>
 
-Defined in: [client/green-api-client.ts:419](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L419)
+Defined in: [client/green-api-client.ts:529](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L529)
 
 Sets the profile picture for the WhatsApp account.
 
@@ -1862,7 +2089,7 @@ Promise resolving to profile picture update response
 
 > **setSettings**(`settings`): `Promise`\<[`SetSettingsResponse`](../interfaces/SetSettingsResponse.md)\>
 
-Defined in: [client/green-api-client.ts:400](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L400)
+Defined in: [client/green-api-client.ts:510](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L510)
 
 Updates instance settings.
 
@@ -1886,7 +2113,7 @@ Promise resolving to settings update response
 
 > **showMessagesQueue**(): `Promise`\<[`QueueMessage`](../interfaces/QueueMessage.md)[]\>
 
-Defined in: [client/green-api-client.ts:454](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L454)
+Defined in: [client/green-api-client.ts:600](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L600)
 
 Gets the list of messages in the sending queue.
 Messages are stored for 24 hours and will be sent immediately after phone authorization.
@@ -1911,7 +2138,7 @@ console.log(queuedMessages);
 
 > **unarchiveChat**(`params`): `Promise`\<`void`\>
 
-Defined in: [client/green-api-client.ts:578](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L578)
+Defined in: [client/green-api-client.ts:760](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L760)
 
 Unarchives a chat.
 
@@ -1935,7 +2162,7 @@ Promise resolving to void on success
 
 > **updateApiToken**(): `Promise`\<[`UpdateApiTokenResponse`](../interfaces/UpdateApiTokenResponse.md)\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:561](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L561)
 
 Generates a new API token for the current instance (Beta feature).
 The old token is immediately invalidated after calling this method.
@@ -1961,7 +2188,7 @@ console.log('New token:', result.apiTokenInstance);
 
 > **updateGroupName**(`params`): `Promise`\<[`UpdateGroupNameResponse`](../interfaces/UpdateGroupNameResponse.md)\>
 
-Defined in: [client/green-api-client.ts:667](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L667)
+Defined in: [client/green-api-client.ts:899](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L899)
 
 Changes a group chat name.
 
@@ -1985,10 +2212,11 @@ Promise resolving to update status
 
 > **updateGroupSettings**(`params`): `Promise`\<[`UpdateGroupSettingsResponse`](../interfaces/UpdateGroupSettingsResponse.md)\>
 
-Defined in: [client/green-api-client.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/client/green-api-client.ts)
+Defined in: [client/green-api-client.ts:998](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L998)
 
 Updates group chat settings (Beta feature).
-Controls whether participants can send messages and edit group settings.
+Controls whether participants can edit group settings and send messages.
+No error is returned if settings already match the requested values.
 
 #### Parameters
 
@@ -1996,18 +2224,18 @@ Controls whether participants can send messages and edit group settings.
 
 [`UpdateGroupSettings`](../interfaces/UpdateGroupSettings.md)
 
-Parameters containing group ID and permission flags
+Parameters containing group ID and settings to update
 
 #### Returns
 
 `Promise`\<[`UpdateGroupSettingsResponse`](../interfaces/UpdateGroupSettingsResponse.md)\>
 
-Promise resolving to settings update status
+Promise resolving to update status
 
 #### Example
 
 ```typescript
-// Restrict group to admins only
+// Restrict message sending to admins only
 await client.updateGroupSettings({
   groupId: "1234567890123456789@g.us",
   allowParticipantsSendMessages: false,
@@ -2021,7 +2249,7 @@ await client.updateGroupSettings({
 
 > **uploadFile**(`file`, `customFileName`?): `Promise`\<[`UploadFile`](../interfaces/UploadFile.md)\>
 
-Defined in: [client/green-api-client.ts:325](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/client/green-api-client.ts#L325)
+Defined in: [client/green-api-client.ts:435](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/client/green-api-client.ts#L435)
 
 Uploads a file to GREEN-API servers.
 

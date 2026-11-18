@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: StatusStatisticItem
 
-Defined in: [types/statuses.ts:44](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L44)
+Defined in: [types/statuses.ts:44](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/statuses.ts#L44)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/statuses.ts:44](https://github.com/green-api/whatsapp-api-cli
 
 > **participant**: `string`
 
-Defined in: [types/statuses.ts:45](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L45)
+Defined in: [types/statuses.ts:45](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/statuses.ts#L45)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/statuses.ts:45](https://github.com/green-api/whatsapp-api-cli
 
 > **status**: [`OutgoingMessageStatus`](../type-aliases/OutgoingMessageStatus.md)
 
-Defined in: [types/statuses.ts:47](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L47)
+Defined in: [types/statuses.ts:47](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/statuses.ts#L47)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [types/statuses.ts:47](https://github.com/green-api/whatsapp-api-cli
 
 > **timestamp**: `number`
 
-Defined in: [types/statuses.ts:46](https://github.com/green-api/whatsapp-api-client-js-v2/blob/7fa39a40b101be7898f7db72bda0dfd9731ef5fd/src/types/statuses.ts#L46)
+Defined in: [types/statuses.ts:46](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/statuses.ts#L46)

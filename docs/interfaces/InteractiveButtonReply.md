@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,11 +6,7 @@
 
 # Interface: InteractiveButtonReply
 
-Defined in: [types/messages.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/messages.ts)
-
-Represents a single reply button for use with sendInteractiveButtonsReply.
-When clicked, the button text is returned as a message to the chat.
-Button text is limited to 25 characters and a maximum of 3 buttons are allowed per message.
+Defined in: [types/messages.ts:487](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L487)
 
 ## Properties
 
@@ -18,7 +14,7 @@ Button text is limited to 25 characters and a maximum of 3 buttons are allowed p
 
 > **buttonId**: `string`
 
-Unique button identifier.
+Defined in: [types/messages.ts:488](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L488)
 
 ***
 
@@ -26,4 +22,4 @@ Unique button identifier.
 
 > **buttonText**: `string`
 
-Button label text returned to the chat when clicked. Maximum 25 characters.
+Defined in: [types/messages.ts:489](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/messages.ts#L489)

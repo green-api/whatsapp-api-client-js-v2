@@ -1,4 +1,4 @@
-[**GREEN-API WhatsApp SDK v2 v1.0.3**](../README.md)
+[**GREEN-API WhatsApp SDK v2 v1.3.0**](../README.md)
 
 ***
 
@@ -6,9 +6,7 @@
 
 # Interface: OutgoingCallParticipant
 
-Defined in: [types/calls.ts](https://github.com/green-api/whatsapp-api-client-js-v2/blob/master/src/types/calls.ts)
-
-Represents a participant's individual call status within an outgoing call.
+Defined in: [types/calls.ts:20](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L20)
 
 ## Properties
 
@@ -16,7 +14,7 @@ Represents a participant's individual call status within an outgoing call.
 
 > **id**: `string`
 
-Personal chat identifier of the participant.
+Defined in: [types/calls.ts:21](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L21)
 
 ***
 
@@ -24,4 +22,4 @@ Personal chat identifier of the participant.
 
 > **status**: [`OutgoingCallStatus`](../type-aliases/OutgoingCallStatus.md)
 
-Individual participant status: `pickUp`, `hungUp`, `declined`, or `invalid`.
+Defined in: [types/calls.ts:22](https://github.com/green-api/whatsapp-api-client-js-v2/blob/1421d2d05dac53d804ec594a75a66b56a72f1918/src/types/calls.ts#L22)
