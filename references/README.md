@@ -125,6 +125,23 @@ Quick reference for all documented methods organized by category.
 
 ---
 
+## Voice Calls
+
+**File:** [`calls.md`](./calls.md)
+
+| Method | Purpose | Returns |
+|--------|---------|---------|
+| `callsDial()` | Start an outgoing call | CallIdResponse |
+| `callsAccept()` | Accept the incoming call | CallIdResponse |
+| `callsReject()` | Reject the incoming call | CallIdResponse |
+| `callsHangUp()` | End the current call | CallIdResponse |
+| `callsState()` | Current call state | CallState |
+| `callsGetIceServers()` | ICE servers for the audio | IceServer[] |
+| `getCallRecording()` | Call recording | CallRecording |
+| `connectCalls()` | Live calls connection with audio | CallsConnection |
+
+---
+
 ## Files & Downloads
 
 **File:** [`files.md`](./files.md)
@@ -266,6 +283,7 @@ try {
 - [`account.md`](./account.md) - 11 methods
 - [`contacts.md`](./contacts.md) - 6 methods
 - [`journal.md`](./journal.md) - 6 methods
+- [`calls.md`](./calls.md) - 8 methods
 - [`files.md`](./files.md) - 2 methods
 - [`queues.md`](./queues.md) - 4 methods
 - [`statuses.md`](./statuses.md) - 7 methods

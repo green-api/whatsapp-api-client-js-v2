@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { Instance } from "../types";
 import { GreenApiLogger } from "../utils/logger";
+import { GreenApiError } from "./errors";
 
 /**
  * Base client for GREEN-API interactions.
@@ -52,7 +53,7 @@ export abstract class BaseClient {
      * @param config - Additional Axios config
      * @param pathAfterToken - Additional path segment to append after the API token
      * @returns Promise resolving to the response data
-     * @throws Error on failure
+     * @throws {GreenApiError} On failure, with the HTTP status and response
      */
     protected async makeRequest<T>(
         method: "get" | "post" | "delete",
@@ -104,7 +105,7 @@ export abstract class BaseClient {
                 data
             });
 
-            throw new Error(detailedError);
+            throw new GreenApiError(detailedError, error.response?.status, error.response?.data);
         }
     }
 

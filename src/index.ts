@@ -5,4 +5,6 @@
 
 export { GreenApiClient } from './client/green-api-client';
 export { GreenApiPartnerClient } from './client/green-api-partner-client';
+export { GreenApiError } from './client/errors';
+export * from './calls';
 export * from './types';

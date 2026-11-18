@@ -1,4 +1,5 @@
 import axios, { AxiosError } from "axios";
+import { LOG_REDACTED_SEGMENT, LOG_TOKEN_SEGMENT_PATTERN } from "./defaults";
 
 /**
  * Available log levels for the logger
@@ -227,7 +228,7 @@ export class GreenApiLogger {
 				status: axiosError.response?.status,
 				statusText: axiosError.response?.statusText,
 				data: axiosError.response?.data,
-				url: axiosError.config?.url,
+				url: axiosError.config?.url?.replace(LOG_TOKEN_SEGMENT_PATTERN, LOG_REDACTED_SEGMENT),
 				method: axiosError.config?.method,
 				headers: axiosError.response?.headers,
 				timestamp: new Date().toISOString(),

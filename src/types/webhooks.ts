@@ -13,6 +13,7 @@ export type WebhookType =
     | "outgoingMessageReceived"
     | "incomingMessageReceived"
     | "incomingCall"
+    | "outgoingCall"
     | "incomingBlock";
 
 /**
@@ -66,7 +67,7 @@ export interface MessageWebhook {
     };
 }
 
-export type CallStatus = "offer" | "pickUp" | "hangUp" | "missed" | "declined";
+export type CallStatus = "offer" | "pickUp" | "hangUp" | "hungUp" | "missed" | "declined" | "invalid";
 
 export interface IncomingCallWebhook {
     from: string;
@@ -79,7 +80,35 @@ export interface IncomingCallWebhook {
     status: CallStatus;
     timestamp: number;
     idMessage: string;
+    isVideo?: boolean;
+    isGroup?: boolean;
+    duration?: number;
+    sendByApi?: boolean;
 }
+
+export interface OutgoingCallParticipantStatus {
+    id: string;
+    status: CallStatus;
+}
+
+export interface OutgoingCallWebhook {
+    from: string;
+    typeWebhook: "outgoingCall";
+    instanceData: {
+        idInstance: number;
+        wid: string;
+        typeInstance: string;
+    };
+    status: CallStatus;
+    timestamp: number;
+    idMessage: string;
+    isVideo?: boolean;
+    duration?: number;
+    participants?: OutgoingCallParticipantStatus[];
+    sendByApi?: boolean;
+}
+
+export type CallWebhook = IncomingCallWebhook | OutgoingCallWebhook;
 
 export interface IncomingBlockWebhook {
     typeWebhook: "incomingBlock";
@@ -100,4 +129,5 @@ export type GreenApiWebhook =
     | OutgoingMessageStatusWebhook
     | StateInstanceWebhook
     | IncomingCallWebhook
+    | OutgoingCallWebhook
     | IncomingBlockWebhook;

@@ -373,6 +373,92 @@ const deleteResult = await client.deleteContact({
 console.log('Delete contact result:', deleteResult.deleteContact);
 ```
 
+### Voice Calls
+
+WhatsApp voice calls from the instance: 1:1 only, one call at a time, on plans that include calls. Outgoing calls work only
+to chats that wrote or called the instance in the last 72 hours.
+
+The control methods work out of the box. To hear the other side and play audio into the call, install the optional
+dependencies (Node.js 18 or newer):
+
+```bash
+npm install werift@^0.25.2 ws
+```
+
+Outgoing call that plays a message:
+
+```typescript
+import { GreenApiClient, CallError } from '@green-api/whatsapp-api-client-js-v2';
+
+const calls = client.connectCalls();
+await calls.open();
+
+const { callId } = await client.callsDial({ chatId: '79001234567@c.us' });
+await calls.startAudioBridge();
+await calls.waitFor('on-call', 60000);
+await calls.play('./hello.ogg');
+await client.callsHangUp();
+calls.close();
+```
+
+Answering incoming calls:
+
+```typescript
+const calls = client.connectCalls();
+
+calls.on('incoming-call', async (info) => {
+    console.log('Call from', info.name || info.wid);
+    await client.callsAccept();
+    await calls.startAudioBridge();
+    await calls.play('./greeting.ogg');
+    await client.callsHangUp();
+});
+calls.on('state', (state) => console.log('Call state:', state.state));
+calls.on('end-call', (detail) => console.log('Call ended:', detail.description));
+calls.on('remote-audio', (audio) => console.log('Opus packet from the other side:', audio.payload.length, 'bytes'));
+
+await calls.open();
+```
+
+Realtime audio in both directions: `sendPcm()` sends 16-bit mono PCM into the call as it comes, in chunks of any size,
+and the `remote-pcm` event gives the other side's audio as PCM. It needs the Opus codec as well:
+
+```bash
+npm install opusscript
+```
+
+```typescript
+const calls = client.connectCalls({ pcmSampleRate: 24000 });
+
+calls.on('remote-pcm', (pcm) => setTimeout(() => calls.sendPcm(pcm), 1500));
+calls.on('incoming-call', async () => {
+    await client.callsAccept();
+    await calls.startAudioBridge();
+});
+
+await calls.open();
+```
+
+- `pcmSampleRate` is 8000, 12000, 16000, 24000 (default) or 48000, the same for both directions.
+- `remote-pcm` keeps real time: when the other side is silent and its phone sends no audio, or packets are lost, the
+  gap arrives as silence together with the next audio.
+- `clearAudio()` drops the audio that is queued and not sent yet, `drainAudio()` waits until it is sent,
+  `pendingAudioMs` says how much is queued.
+- `play()` takes a file path, an http(s) URL, a Buffer or a stream. Ogg Opus files play as they are, other formats
+  (mp3, wav and so on) need [ffmpeg](https://ffmpeg.org/) on the PATH or `{ ffmpegPath }`. `play()` and `sendPcm()`
+  replace each other.
+- Calls methods and the connection throw `CallError` with a `code` and a readable `message`, for example
+  `INVALID_CREDENTIALS`, `INVALID_CHAT_ID`, `NO_RECENT_CONTACT`, `NOT_IN_TARIFF`, `ALREADY_IN_CALL`, `NO_ACTIVE_CALL`.
+- `callsDial` returns the `callId`. It is the `idMessage` of the call webhooks and the input of
+  `getCallRecording({ idMessage: callId })`.
+- Call webhooks: enable `incomingCallWebhook` and `outgoingCallWebhook` with `setSettings`, `isCallWebhook()` narrows a
+  webhook to the call types.
+
+Runnable examples: [outgoingCall.js](examples/outgoingCall.js), [incomingCall.js](examples/incomingCall.js),
+[echoCall.js](examples/echoCall.js), [callErrors.js](examples/callErrors.js),
+[callRecording.js](examples/callRecording.js). Calls documentation:
+[WhatsApp Calling API](https://green-api.com/en/docs/calls/).
+
 ## SDK methods
 
 The SDK provides the following groups of methods:
@@ -465,6 +551,16 @@ The SDK provides the following groups of methods:
     - `getInstances`
     - `createInstance`
     - `deleteInstanceAccount`
+
+11. **Calls Methods**
+    - `callsDial` - start an outgoing call
+    - `callsAccept`
+    - `callsReject`
+    - `callsHangUp`
+    - `callsState`
+    - `callsGetIceServers`
+    - `getCallRecording`
+    - `connectCalls` - live calls connection: call state, incoming calls, audio files and realtime audio in both directions
 
 ## License
 

@@ -359,6 +359,13 @@ For detailed parameter descriptions, API response formats, and constraints, see:
 - `lastIncomingCalls()` - recent incoming calls
 - `lastOutgoingCalls()` - recent outgoing calls
 
+### [**Voice Calls**](./references/calls.md)
+- `callsDial()`, `callsAccept()`, `callsReject()`, `callsHangUp()` - call control, return `{ callId }`
+- `callsState()`, `callsGetIceServers()`, `getCallRecording()`
+- `connectCalls()` - live calls connection: call state events, incoming calls, call audio (`play()`, `remote-audio`), needs `npm install werift@^0.25.2 ws`
+- Realtime audio in both directions: `sendPcm()`, `clearAudio()`, `drainAudio()`, `remote-pcm` event (16-bit mono PCM), needs `npm install opusscript` as well
+- Errors are `CallError` with a `code` (`INVALID_CREDENTIALS`, `INVALID_CHAT_ID`, `NO_RECENT_CONTACT`...)
+
 ### [**Queues & Webhooks**](./references/queues.md)
 - `showMessagesQueue()` - pending message queue
 - `clearMessagesQueue()` - clear queue
@@ -501,6 +508,7 @@ See separate documents for parameter details and constraints:
 - [Statuses](./references/statuses.md)
 - [Files & Downloads](./references/files.md)
 - [Journal & History](./references/journal.md)
+- [Voice Calls](./references/calls.md)
 - [Queues & Webhooks](./references/queues.md)
 
 ---

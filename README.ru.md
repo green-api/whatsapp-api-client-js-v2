@@ -370,6 +370,92 @@ const deleteResult = await client.deleteContact({
 console.log('Delete contact result:', deleteResult.deleteContact);
 ```
 
+### Голосовые звонки
+
+Голосовые звонки WhatsApp с инстанса: только 1:1, один звонок за раз, на тарифах со звонками. Исходящие звонки работают
+только в чаты, которые писали или звонили инстансу за последние 72 часа.
+
+Методы управления звонком работают сразу. Чтобы слышать собеседника и проигрывать звук в звонок, установите
+необязательные зависимости (Node.js 18 или новее):
+
+```bash
+npm install werift@^0.25.2 ws
+```
+
+Исходящий звонок с сообщением:
+
+```typescript
+import { GreenApiClient, CallError } from '@green-api/whatsapp-api-client-js-v2';
+
+const calls = client.connectCalls();
+await calls.open();
+
+const { callId } = await client.callsDial({ chatId: '79001234567@c.us' });
+await calls.startAudioBridge();
+await calls.waitFor('on-call', 60000);
+await calls.play('./hello.ogg');
+await client.callsHangUp();
+calls.close();
+```
+
+Ответ на входящие звонки:
+
+```typescript
+const calls = client.connectCalls();
+
+calls.on('incoming-call', async (info) => {
+    console.log('Звонок от', info.name || info.wid);
+    await client.callsAccept();
+    await calls.startAudioBridge();
+    await calls.play('./greeting.ogg');
+    await client.callsHangUp();
+});
+calls.on('state', (state) => console.log('Состояние звонка:', state.state));
+calls.on('end-call', (detail) => console.log('Звонок завершён:', detail.description));
+calls.on('remote-audio', (audio) => console.log('Opus-пакет от собеседника:', audio.payload.length, 'байт'));
+
+await calls.open();
+```
+
+Звук в реальном времени в обе стороны: `sendPcm()` отправляет в звонок 16-битный моно PCM по мере поступления, кусками
+любого размера, а событие `remote-pcm` отдаёт звук собеседника в PCM. Для этого нужен ещё Opus-кодек:
+
+```bash
+npm install opusscript
+```
+
+```typescript
+const calls = client.connectCalls({ pcmSampleRate: 24000 });
+
+calls.on('remote-pcm', (pcm) => setTimeout(() => calls.sendPcm(pcm), 1500));
+calls.on('incoming-call', async () => {
+    await client.callsAccept();
+    await calls.startAudioBridge();
+});
+
+await calls.open();
+```
+
+- `pcmSampleRate` - 8000, 12000, 16000, 24000 (по умолчанию) или 48000, одна частота для обоих направлений.
+- `remote-pcm` идёт в реальном времени: когда собеседник молчит и его телефон не шлёт звук или пакеты теряются, пропуск
+  приходит тишиной вместе со следующим звуком.
+- `clearAudio()` сбрасывает звук в очереди, который ещё не отправлен, `drainAudio()` ждёт, пока он отправится,
+  `pendingAudioMs` показывает, сколько звука в очереди.
+- `play()` принимает путь к файлу, http(s) ссылку, Buffer или поток. Файлы Ogg Opus проигрываются как есть, для других
+  форматов (mp3, wav и т.д.) нужен [ffmpeg](https://ffmpeg.org/) в PATH или `{ ffmpegPath }`. `play()` и `sendPcm()`
+  заменяют друг друга.
+- Методы звонков и соединение выбрасывают `CallError` с `code` и понятным `message`, например `INVALID_CREDENTIALS`,
+  `INVALID_CHAT_ID`, `NO_RECENT_CONTACT`, `NOT_IN_TARIFF`, `ALREADY_IN_CALL`, `NO_ACTIVE_CALL`.
+- `callsDial` возвращает `callId`. Это `idMessage` в вебхуках звонков и параметр
+  `getCallRecording({ idMessage: callId })`.
+- Вебхуки звонков: включите `incomingCallWebhook` и `outgoingCallWebhook` через `setSettings`, `isCallWebhook()`
+  сужает тип вебхука до звонковых.
+
+Готовые примеры: [outgoingCall.js](examples/outgoingCall.js), [incomingCall.js](examples/incomingCall.js),
+[echoCall.js](examples/echoCall.js), [callErrors.js](examples/callErrors.js),
+[callRecording.js](examples/callRecording.js). Документация по звонкам:
+[WhatsApp Calling API](https://green-api.com/docs/calls/).
+
 ## Методы SDK
 
 SDK предоставляет следующие группы методов:
@@ -462,6 +548,16 @@ SDK предоставляет следующие группы методов:
     - `getInstances` - получение всех инстансов
     - `createInstance` - создание инстанса
     - `deleteInstanceAccount` - удаление инстанса
+
+11. **Методы звонков**
+    - `callsDial` - исходящий звонок
+    - `callsAccept` - принять входящий звонок
+    - `callsReject` - отклонить входящий звонок
+    - `callsHangUp` - завершить звонок
+    - `callsState` - состояние звонка
+    - `callsGetIceServers` - ICE-серверы для звука
+    - `getCallRecording` - запись звонка
+    - `connectCalls` - соединение звонков: состояние, входящие звонки, аудиофайлы и звук в реальном времени в обе стороны
 
 ## Лицензия
 

@@ -92,7 +92,17 @@ import {
 	ClearWebhooksQueueResponse,
 	UpdateGroupSettings,
 	UpdateGroupSettingsResponse,
+	CallsDial,
+	CallIdResponse,
+	CallState,
+	IceServer,
+	GetCallRecording,
+	CallRecording,
+	CallsConnectionOptions,
 } from "../types";
+import { CallsConnection } from "../calls/calls-connection";
+import { toCallError } from "../calls/call-errors";
+import { CALLS_RTC_ENDPOINT } from "../calls/defaults";
 
 /**
  * Client for direct interaction with GREEN-API's WhatsApp gateway.
@@ -1086,6 +1096,137 @@ export class GreenApiClient extends BaseClient {
 	 */
 	async lastOutgoingCalls(minutes?: number): Promise<OutgoingCall[]> {
 		return this.makeRequest("get", "lastOutgoingCalls", undefined, minutes ? {minutes} : undefined);
+	}
+
+	// -------------------------------------------------------------------------
+	// Calls Methods
+	// -------------------------------------------------------------------------
+
+	/**
+	 * Starts an outgoing voice call. Without the call audio (connectCalls) the call connects but nobody hears anything.
+	 * Outgoing calls work only to chats that wrote or called the instance in the last 72 hours.
+	 *
+	 * @param params - Chat ID of the person to call, 79001234567@c.us or 123456789012345@lid
+	 * @returns Promise resolving to the call ID, the same as idMessage in the call webhooks
+	 * @throws {CallError} INVALID_CHAT_ID, NO_RECENT_CONTACT, ALREADY_IN_CALL, NOT_IN_TARIFF, INVALID_CREDENTIALS and others
+	 *
+	 * @example
+	 * ```typescript
+	 * const {callId} = await client.callsDial({chatId: "79001234567@c.us"});
+	 * ```
+	 */
+	async callsDial(params: CallsDial): Promise<CallIdResponse> {
+		return this.callsRequest("post", "callsDial", {chatId: params.chatId});
+	}
+
+	/**
+	 * Accepts the incoming call.
+	 *
+	 * @returns Promise resolving to the call ID
+	 * @throws {CallError} NO_INCOMING_CALL and others
+	 */
+	async callsAccept(): Promise<CallIdResponse> {
+		return this.callsRequest("post", "callsAccept");
+	}
+
+	/**
+	 * Rejects the incoming call.
+	 *
+	 * @returns Promise resolving to the call ID
+	 * @throws {CallError} NO_INCOMING_CALL and others
+	 */
+	async callsReject(): Promise<CallIdResponse> {
+		return this.callsRequest("post", "callsReject");
+	}
+
+	/**
+	 * Ends the current call.
+	 *
+	 * @returns Promise resolving to the call ID
+	 * @throws {CallError} NO_ACTIVE_CALL and others
+	 */
+	async callsHangUp(): Promise<CallIdResponse> {
+		return this.callsRequest("post", "callsHangUp");
+	}
+
+	/**
+	 * Returns the current call state of the instance.
+	 * After a call ends the state is a bare idle, the end reason comes only on the calls connection.
+	 *
+	 * @returns Promise resolving to the call state
+	 * @throws {CallError} INVALID_CREDENTIALS and others
+	 *
+	 * @example
+	 * ```typescript
+	 * const {state, info} = await client.callsState();
+	 * ```
+	 */
+	async callsState(): Promise<CallState> {
+		return this.callsRequest("get", "callsState");
+	}
+
+	/**
+	 * Returns the ICE servers for the call audio. connectCalls uses it itself.
+	 *
+	 * @returns Promise resolving to the ICE servers
+	 */
+	async callsGetIceServers(): Promise<IceServer[]> {
+		return this.callsRequest("get", "callsGetIceServers");
+	}
+
+	/**
+	 * Returns the recording of a call. downloadUrl works for 1 hour.
+	 *
+	 * @param params - Call ID from callsDial, the call webhooks or the calls journals
+	 * @returns Promise resolving to the recording status and download URL
+	 *
+	 * @example
+	 * ```typescript
+	 * const recording = await client.getCallRecording({idMessage: callId});
+	 * if (recording.status === "ready") {
+	 *   console.log(recording.downloadUrl);
+	 * }
+	 * ```
+	 */
+	async getCallRecording(params: GetCallRecording): Promise<CallRecording> {
+		return this.callsRequest("post", "getCallRecording", {idMessage: params.idMessage});
+	}
+
+	/**
+	 * Creates the live calls connection: call state, incoming calls, end reasons and the call audio.
+	 * Call open() on it before use. Audio needs the optional dependencies: npm install werift@^0.25.2 ws
+	 * Live PCM audio (sendPcm, remote-pcm) also needs: npm install opusscript
+	 *
+	 * @param options - Sample rate of the live PCM audio, 24000 by default
+	 * @returns The calls connection, not yet open
+	 * @throws {CallError} INVALID_AUDIO if pcmSampleRate is not supported
+	 *
+	 * @example
+	 * ```typescript
+	 * const calls = client.connectCalls();
+	 * calls.on("incoming-call", (info) => console.log("Call from", info.wid));
+	 * await calls.open();
+	 * ```
+	 */
+	connectCalls(options: CallsConnectionOptions = {}): CallsConnection {
+		return new CallsConnection(this, this.getCallsRtcUrl(), options);
+	}
+
+	/**
+	 * Returns the WebSocket URL of the calls connection. The URL contains the instance token.
+	 *
+	 * @returns The callsRtc URL
+	 */
+	getCallsRtcUrl(): string {
+		return `${this.buildUrl().replace(/^http/, "ws")}${this.buildEndpoint(CALLS_RTC_ENDPOINT)}`;
+	}
+
+	private async callsRequest<T>(method: "get" | "post", endpoint: string, data?: unknown): Promise<T> {
+		try {
+			return await this.makeRequest<T>(method, endpoint, data);
+		} catch (error) {
+			throw toCallError(error, endpoint);
+		}
 	}
 
 	// -------------------------------------------------------------------------

@@ -57,6 +57,7 @@ export interface Settings {
 	keepOnlineStatus?: "yes" | "no";
 	pollMessageWebhook?: "yes" | "no";
 	incomingCallWebhook?: "yes" | "no";
+	outgoingCallWebhook?: "yes" | "no";
 	incomingBlockWebhook?: "yes" | "no";
 	editedMessageWebhook?: "yes" | "no";
 	deletedMessageWebhook?: "yes" | "no";
