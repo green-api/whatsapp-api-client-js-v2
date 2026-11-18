@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/green-api/whatsapp-api-client-js-v2#readme",
   "dependencies": {
-    "axios": "^1.8.4"
+    "axios": "^1.21.1"
   },
   "peerDependencies": {
     "opusscript": "^0.1.1",
